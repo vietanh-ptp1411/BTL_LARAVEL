@@ -1,0 +1,645 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito-Bold';
+  }
+header{
+  margin: 0;
+  padding: 0;
+}  
+  .menu {
+    height: 34px;
+    width: 100%;
+  }
+  .menu a img{
+    width: 100%;
+    height: 100%;
+  }
+  /* ----------------------------------------------------------- */
+  .menu2{
+    height: 101px;
+    width: 1200PX; 
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+  }
+  .logo {
+      flex: 25%;
+      /* width: 255px; */
+      height: 101px;
+      float: left;
+      font-weight: bolder;  
+      padding: 0 15px 0 15px;
+  }
+  .box{
+      /* width: 570px; */
+      flex: 50%;
+      height: 63px;
+      padding:28px 0 10px 0;
+  }
+  .form{
+    width: 570px;
+    height: 37px;
+  
+  }
+  .search{
+    display: flex;
+    border: 2px solid #ffb0bd;
+    border-radius: 8px;
+    width: 568px;
+    height: 34px;
+    align-items: stretch;
+  }
+  .search1{
+    border: none;
+    width: 504px;
+    height: 22px;
+    padding: 6px 12px 6px 12px;
+    background: none;
+    outline: none;
+    font-family:  'Nunito-Bold';
+  }
+  .search2{
+    width: 41.091px;
+    height: 34px;
+    border: none;
+    border-radius: 0px;
+  }
+  .search3{
+    border: none;
+    color: #fff;
+    background-color: #ffb0bd;
+    padding: 4.800px 13.120px;
+    width: 100%;
+    height: 100%;
+  }
+  .research {
+    display: flex;
+    margin-top: 3px;
+    width: 570px;
+    justify-content: space-between;
+  }
+  
+  .research p {
+    display: block;
+    margin-bottom: 0;
+  }
+  
+  .research a {
+    font-size: 16px;
+    color: #000;
+    padding: 0 5px;
+    font-family: 'Nunito-Regular';
+    text-align: center;
+  }
+  
+  .research a:hover{
+    color: #ffb0bd;
+  }
+  p{
+    margin-top: 0;
+  }
+  a{
+    text-decoration: none;
+  }
+  /* ------------------------------------------------------------- */
+  
+  .login{
+    /* width: 255px; */
+    flex: 25%;
+    height: 102px;
+    padding: 0 15px 0 15px;
+    flex: 0 0 20%;
+  }
+  
+  .login1{
+    display: flex;
+    width: 255px;
+    height: 85px;
+    align-items: center !important;
+    padding-bottom: 16px;
+  }
+  .login2{
+    margin: 0;
+    width: 200px;
+    height: 24px;
+    padding: 10px 15px 0 0;
+    font-family: 'Nunito-Bold';
+    font-size: 16px;
+    display: flex;
+  }
+  .login2 li{
+    display: inline;
+    color: #000;
+  }
+  .login2 li a{
+    font-family:'Nunito-Bold';
+    font-size: 16px;
+    color: #000;
+    padding: 0 5px;
+  }
+  .login2 li a:hover {     
+    color: #ffb0bd;
+  }
+  
+  .count-cart{
+    position: static;
+    display: block;
+  }
+  .count-cart-icon{
+    width: 20px;
+    height: 29px;
+    background: url(/anh/cart_icon.png)center center no-repeat;
+    background-size: 100%;
+    position: relative;
+    cursor: pointer;
+    margin-top: 1px;
+  }
+  /*-----------------------------------------------------------------*/
+  .menu3{
+    margin-bottom: 10px;
+  }
+  .menu3_1-container {
+    width: 1165px;
+    font-family: 'sans-serif';
+    margin: 0 auto;
+  }
+  
+  .menu3_1 {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .menu3_1-item {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ffb0bd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu3_1-item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+  }
+  
+  .menu3_1-item:hover {
+    background-color: #e56266;
+  }
+  
+
+
+/* --------------------test--------------------- */
+
+
+.slide{
+  /* position: relative; */
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  height: 360px;
+}
+.v{
+  margin: 0 -4px ;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 360px;
+}
+.v1{
+  padding: 0 0 0 5px;
+  flex: 75%;
+  max-width: 74%;  
+  width: 100%;
+  height: 360px;
+  margin-right: 10px;
+}
+.img{
+  width: 100%;
+  height: 360px;
+}
+.img img{
+  width: 100%;
+  height: 360px;
+
+}
+.v2{
+  padding:0 0 0 5px;
+  flex: 25%;
+  max-width: 318px;
+  width: 100%;
+  height: 360px;
+}
+.v2-2{
+  margin-bottom: 10px;
+  width: 320px;
+  height: 175px;
+}
+.v2-2 img{
+  width: 320px;
+  height: 175px;
+}
+/* ---------------heets phaanf slide----------- */
+
+
+.main{
+  width: 100%;
+  height: 2200px;
+  margin-top: 10px;
+  font-family: 'Nunito-Bold';
+}
+.main1{
+  width: 1200px;
+  height: 2200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+.main2{
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  height: 2200px;
+}
+.main3{
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+  margin-top: 70px;
+  max-width: 100%;
+  padding: 0 15px;
+  height: 900px;
+}
+.main3 h2{
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 30px;
+  color: #000;
+  font-family: 'Nunito-ExtraBold';
+  margin:0 0 30px 0;
+}
+.main3 h2 a{
+  color: #000;
+  text-decoration: none;
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+#wrapper{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+ul.product{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+ul.product li{
+  flex-basis: 25%;
+  padding: 0 15px; 
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  height: 370px;
+}
+ul.product li img{
+  max-width: 100%;
+  height: auto;
+}
+ul.product li .product-top{
+  position: relative;
+  overflow: hidden;
+  /* aanr mua ngay ddi */
+}
+ul.product li .product-top .product-thumb{
+  display: block;
+}
+ul.product li:hover .product-top .product-thumb img{
+  filter: opacity(80%);
+}
+ul.product li .product-top .product-thumb img{
+  display: block; 
+  /* bor khoangr cachs giuawx anhr vaf mua ngay */
+}
+ul.product li .product-top a.buy-now{
+  background-color: #333333;
+  text-transform: none;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  color: aliceblue;
+  padding: 10px 0;
+  position: absolute;
+  bottom: -43px;
+  width: 100%;
+  /* hiệu ứng chuyển Mua ngay lên trên chậm */
+  transition: 0.26s ease-in-out;
+  /* làm mờ mua ngay */
+  opacity: 0.85;
+}
+ul.product li:hover a.buy-now{
+  bottom: 0;
+}
+
+ul.product li .product-info{
+  padding: 10px 0; 
+  height: 50px;
+}
+ul.product li .product-info a{
+  display: block;
+  text-decoration: none;
+}
+ul.product li .product-info a.product-name{
+  color: #939393;
+  padding: 3px 0;
+  width: 270px;
+  height:50px;
+  font-size: 15px;
+}
+ul.product li .product-info a.product-name:hover{
+  color: #ffb0bd;
+}
+ul.product li .product-info .product-price{
+  color: #000;
+  padding: 10px 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.xemt{
+  width: 100%;
+  height: 43px;
+  text-align: center;
+  padding:0 15px;
+}
+.xemt1{
+  width: 85px;
+  height: 25px;
+  display: inline-flex;
+  color: #fff;
+  background-color: #ffb0bd;
+  border-color: #ffb0bd;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+.main5{
+  flex:0 0 100%;
+  max-width: 100%;
+  margin: 45px 0;
+  position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+
+/* ------------------phaanf chur ddef moiw-------------- */
+.main4{
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+  margin-top: 70px;
+  max-width: 100%;
+  padding: 0 15px;
+  height: 610px;
+}
+.main4 h2{
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin-bottom: 30px;
+  color: #000;
+  font-family: 'Nunito-ExtraBold';
+  margin:0 0 30px 0;
+}
+.main4 h2 a{
+  color: #000;
+  text-decoration: none;
+}
+.z4anh{
+  display: flex;
+  padding: 0 15px;
+  margin-bottom: 30px;
+  
+}
+.cdm1{
+  height: 80px;
+  flex: 0 0 23%;
+  max-width: 23%;
+  padding-right: 30px;
+  border-radius: 5px;
+}
+.cdm1 a img{
+  width: 100%;
+  height: 80px;
+  border-radius: 5px;
+}
+/* ------------boo suuw taapj---------- */
+.main5{
+  width: 100%;
+  height: 480px;
+  margin: 45px 0;
+  padding: 0 15px;
+  flex: 0 0 100%;
+}
+.sli{
+  position: relative;
+  overflow: hidden;
+  height: 415px;
+  width: 100%;
+}
+.zx{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.zx1{
+  width: 400px;
+  height: 100%;
+  padding:20px 10px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.zx1 img{
+  width: 100%;
+  height: 100%;
+}
+
+.asd{
+  position: absolute;
+  top: 43%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.asd i{
+  color: #000;
+  font-size: 30px;
+  height: 50px;
+  width: 30px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+.qqq{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: all 0.3s ease;
+} 
+.zx:nth-child(2){
+  position: absolute; 
+  transform: translateX(100%);
+  bottom: 0;
+} 
+.zx:nth-child(3){
+  position: absolute;
+  transform: translateX(200%) ;
+  bottom: 0;
+} 
+
+
+
+/* ------------------phần cuoois----------------------- */
+footer{
+    background-color: #ffb0bd;
+    color: #fff;
+    width: 100%;
+    height: 365px;
+  }
+  
+  .end{
+    padding: 30px 0;
+    width: 100%;
+    height: 250px;
+  }
+  .cont1{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1244px;
+    height: 250px;
+  }
+  .cont2{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1244px;
+    height: 250px;
+  }
+  .cont3{
+    font-family: 'Nunito-Bold';
+    font-size: 20px;
+    flex: 0 0 16.66666667%;
+    max-width: 16.6666667%;
+    width: 160px;
+    height: 250px;
+  }
+  .c1{
+    margin-bottom: 15px;
+    width: 160px;
+    height: 48px;
+    display: inline-flex;
+    align-items: flex-end;
+  }
+  .icon{
+    float: left;
+    width: 21px;
+    height: 28px;
+  }
+  .font{
+    width: 149px;
+    height: 48px;
+    padding-left: 10px;
+    color: #fff;
+    float: left;
+  }
+  .big{
+    width: 149px;
+    height: 23px;
+    font-size: 25px;
+  }
+  .big1{
+    width: 107px;
+    height: 25px;
+    font-size: 20px;
+  }
+  .icon2{
+    margin-bottom: 15px;
+    font-family: 'Nunito-Bold';
+    font-size: 20px;
+    color: #fff;
+    width: 160px;
+    height: 105px;
+  }
+  .cont3_1{
+    font-family: 'Nunito-Bold';
+    flex: 0 0 21%;
+    max-width: 21%;
+    width: 255px;
+    height: 249px;
+    padding: 0 15px;
+  }
+  .t1{
+    font-size: 17px;
+    line-height: 1.6;
+    font-family: 'Nunito-Bold';
+    width: 255px;
+    height: 134px;
+  }
+  .cont3_2{
+    font-family: 'Nunito-Bold';
+    flex: 0 0 35%;
+    max-width: 35%;
+    width: 445px;
+    height: 249px;
+    padding: 0 15px;
+  }
+  .cont3_3{
+    position: relative;
+    flex: 0 0 20%;
+    max-width: 20%;
+    width: 160px;
+    height: 249px;
+    padding: 0 15px;
+  }
+  .cont3_3_1{
+    display: flex;
+    margin-top: 5px;
+    width: 160px;
+    height: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    padding: 0 5px;
+  }
+  .t2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 160px;
+    height: 60px;
+  }
+  .end1{
+    padding: 15px 0; 
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color:#fff ;
+    text-align: center;
+    width: 100%;
+    height: 24px;
+    margin: 0;
+  }
