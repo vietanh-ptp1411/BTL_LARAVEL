@@ -31,8 +31,7 @@ class HomeController extends Controller
     }
     public function danhmuc()
     {
-        $danhMuc = Category::all();
-        return view('danhmuc', compact('danhMuc'));
+        
     }
     public function thanhtoan()
     {

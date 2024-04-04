@@ -19,12 +19,12 @@ Route::get('/', function () {
 
 
 
-//Trang HOME
+                ///////////////Trang HOME////////////////////////
+
 
 Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
     Route::get('/home',  'index')->name('home');
     Route::get('/giohang',  'giohang')->name('giohang');
-    Route::get('/danhmuc',  'danhmuc')->name('danhmuc');
     Route::get('/thanhtoan',  'thanhtoan')->name('thanhtoan');
 });
 
@@ -33,6 +33,8 @@ Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
 Route::controller(App\Http\Controllers\detailcontroller::class)->group(function(){
     Route::get('/detailt/{ProID}',  'showProduct')->name('detailt');
 });
+
+
 //Login
 Route::controller(App\Http\Controllers\LoginController::class)->group(function(){
     Route::get('/login',  'showLoginForm')->name('login');
@@ -41,13 +43,39 @@ Route::controller(App\Http\Controllers\LoginController::class)->group(function()
     Route::get('/registersubmit',  'register')->name('register.submit');
 });
 
+
+//Danh Mục (category)
+Route::controller(App\Http\Controllers\CategoryController::class)->group(function(){
+    Route::get('/danhmuc/{CatID}',  'store')->name('danhmuc');
+});
+
+
 //Blog
 Route::controller(App\Http\Controllers\BlogController::class)->group(function(){
     Route::get('/blog',  'index')->name('blog');
 });
 
 
-//ADMIN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ////////////////////////ADMIN//////////////////////////////////
 
 Route::get('/admin', function () {
     return view('admin.home');

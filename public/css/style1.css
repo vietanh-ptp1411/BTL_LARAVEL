@@ -377,7 +377,6 @@ a{
 ul.product{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   list-style: none;
   /* width: 100%; */
   padding: 0;

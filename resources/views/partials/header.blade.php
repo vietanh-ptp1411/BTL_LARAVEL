@@ -61,9 +61,9 @@
         <div class="menu3_1-container">
                 <ul class="menu3_1">
                     @foreach($danhMuc as $item)
-                    <li class="menu3_1-item">
-                            <a href="{{ route('danhmuc', ['CatID' => $item->CatID]) }}">{{ $item->CatName}}</a>
-                    </li>
+                        <li class="menu3_1-item">
+                                <a href="{{ route('danhmuc', ['CatID' => $item->CatID]) }}">{{ $item->CatName}}</a>
+                        </li>   
                     @endforeach
                 </ul>
           </div>
