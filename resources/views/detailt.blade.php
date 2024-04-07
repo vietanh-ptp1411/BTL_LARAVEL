@@ -65,7 +65,7 @@
                     </div>
                     <div class="gia">
                         <div class="gia-price">
-                            <span><?=number_format($product['Cost'])?></span>
+                            <span><?=number_format($product['Cost'])?>đ</span>
                         </div>
                     </div>
                     <div class="msl">
@@ -77,48 +77,21 @@
                                 <a href=""><span style="background: #8833ee;"></span></a>
                             </div>
                         </div>
-                        <div class="slz">
-                            <label class="sll1" for="">Số lượng</label>
-                            <div class="slz1">
-                                <div class="slgh">
-                                    <button class="minus-btn" onclick="handleMinus()">-</button>
-                                    <input type="text" name="amount" value="1" id="amount">
-                                    <button class="minus-btn" onclick="handlePlus()">+</button>
-                                </div>
-                                <script>
-                                    let amountElement = document.getElementById('amount');
-                                let amount = amountElement.value;
-                                // console.log(amount);
-        
-                                let render=(amount)=>{
-                                    amountElement.value=amount
-                                }
-                                // handlePlus
-                                let handlePlus=()=>{
-                                    amount++
-                                    render(amount); 
-                                }
-                                
-                                let handleMinus=()=>{
-                                    if(amount>1)
-                                        amount--;
-                                    render(amount);
-                                }
-        
-                                amountElement.addEventListener('input',()=>{
-                                    amount=amountElement.value;
-                                    amount=parseInt(amount);
-                                    amount=(isNaN(amount) ||amount==0)?1:amount;
-                                    render(amount);
-                                    console.log(amount);
-                                })
-                                </script>
+
+                        <form action="{{ route('save-cart') }}" method="POST">
+                            {{csrf_field()}}
+                            <div class="slz">
+                                <label class="sll1" for="">Số lượng</label>
+                                <input class="slz1" name="qty" type="number"  value="1" min="1">
+                                <input class="slz1" name="productID_hidden" type="hidden"  value="<?=$product['ProID']?>">
                             </div>
-                        </div>
-                        <div class="slzz">
-                            <a class="tvgh" style="margin-right: 1%;"onclick="themvaogiohang1(this),showcarrt()" href="{{route('giohang')}}">Thêm vào giỏ hàng</a>
-                            <a class="tvgh" style="margin-left: 1%;" href="{{route('thanhtoan')}}">Mua ngay</a>
-                        </div>
+
+                            <div class="slzz">
+                                <button type="submit" class="tvgh" style="margin-right: 1%;"  href="{{route('giohang')}}">Thêm vào giỏ hàng</button>
+                                <a class="tvgh" style="margin-left: 1%;" href="{{route('thanhtoan')}}">Mua ngay</a>
+                            </div>
+                        </form>
+
                     </div>
         
                     <div class="giaohang">
@@ -209,6 +182,6 @@
 
 @include('partials.footer') 
 
-<script src="/giỏ hàng/giohang.js"></script> 
+<script src="js/giohang.js"></script> 
 </body>
 </html>

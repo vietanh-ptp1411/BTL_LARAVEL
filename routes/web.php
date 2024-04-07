@@ -24,8 +24,8 @@ Route::get('/', function () {
 
 Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
     Route::get('/home',  'index')->name('home');
-    Route::get('/giohang',  'giohang')->name('giohang');
-    Route::get('/thanhtoan',  'thanhtoan')->name('thanhtoan');
+    Route::get('/get-more-products', 'getMoreProducts');
+    Route::get('/get-more-products2', 'getMoreProducts2');
 });
 
 
@@ -48,6 +48,24 @@ Route::controller(App\Http\Controllers\LoginController::class)->group(function()
 Route::controller(App\Http\Controllers\CategoryController::class)->group(function(){
     Route::get('/danhmuc/{CatID}',  'store')->name('danhmuc');
 });
+
+
+
+//Giỏ hàng
+Route::controller(App\Http\Controllers\CartController::class)->group(function(){
+    Route::get('/showcart', 'index')->name('giohang');
+    Route::post('/save-cart', 'savecart')->name('save-cart');
+    Route::post('/update-cart', 'updatecart')->name('update-cart-quatity');
+    Route::get('/delete_cart/{rowId}', 'destroy')->name('delete_cart');
+});
+
+
+
+//Thanh toán
+Route::controller(App\Http\Controllers\PayController::class)->group(function(){
+    Route::get('/thanhtoan',  'index')->name('thanhtoan');
+});
+
 
 
 //Blog

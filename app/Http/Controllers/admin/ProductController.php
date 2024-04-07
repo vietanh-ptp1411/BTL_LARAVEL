@@ -85,7 +85,7 @@ class ProductController extends Controller
         ];
         Product::create($data);
         //sau khi thêm xong hiển thị sang trang index thông báo thêm thành công
-        return redirect()->route('admin.product.index')->with('success','Thêm thành công sản phẩm!');
+        return redirect()->route('product.index')->with('success','Thêm thành công sản phẩm!');
     
     }
 
@@ -181,7 +181,7 @@ class ProductController extends Controller
 
         // Cập nhật các thuộc tính khác tương tự
         $product->save();
-        return redirect()->route('admin.product.index', ['ProID' => $ProID])->with('success', 'Sản phẩm đã được cập nhật thành công.');
+        return redirect()->route('product.index', ['ProID' => $ProID])->with('success', 'Sản phẩm đã được cập nhật thành công.');
     }
 
     /**
@@ -194,6 +194,6 @@ class ProductController extends Controller
     {
         $product = product::find($ProID);
         $product->delete();
-        return redirect()->route('admin.product.index')->with('success', 'Xóa sản phẩm thành công!');
+        return redirect()->route('product.index')->with('success', 'Xóa sản phẩm thành công!');
     }
 }

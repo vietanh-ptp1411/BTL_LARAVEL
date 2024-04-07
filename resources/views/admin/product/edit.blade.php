@@ -98,7 +98,7 @@
                             <div class="control-group hidden-phone">
                                 <label class="control-label" for="textarea2"></label>
                                 <div class="controls">
-                                    <textarea class="cleditor" id="textarea2" name="MetaDescriptions" rows="3" value="{{ $product->MetaDescriptions }}"></textarea>
+                                    <textarea class="cleditor" id="textarea2" name="MetaDescriptions" rows="3" value="">{{ $product->MetaDescriptions }}</textarea>
                                 </div>
                             </div>
                         </td>

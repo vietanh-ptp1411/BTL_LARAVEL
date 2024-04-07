@@ -8,6 +8,7 @@ class Product extends Model
 {
     protected $table = 'product'; // Tên bảng trong cơ sở dữ liệu
 
+    protected $primaryKey = 'ProID';
     // Các cột được phép gán giá trị
     protected $fillable = ['ProID', 'CatID', 'ProName', 'ProDescription', 'ProImage', 'MoreImage','Materials','Size'];
 

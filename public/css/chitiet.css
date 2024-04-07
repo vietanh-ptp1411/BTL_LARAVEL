@@ -350,6 +350,7 @@ body{
   }
   .sll1{
     margin: 0 15px 0 0;
+    padding-top: 3px;
     font-size: 18px;
     min-width: 85px;
     font-family: 'Nunito-Regular';
@@ -377,7 +378,7 @@ body{
 
 
   .slz{
-    width: 100%;
+    width: 150px;
     height: 32px;
     margin-bottom: 25px;
     display: flex;
@@ -403,6 +404,17 @@ body{
     align-items: center;
     display: flex;
   }
+
+  .slz1{
+    margin-bottom: 3px;
+    color: #000;
+    font-size: 14px;
+    width: 50px;
+    min-height: 30px;
+    text-align: center;
+  }
+
+
   .tvgh{
     width: 48%;
     padding: 0.6rem 1rem;
@@ -412,6 +424,7 @@ body{
     color: #fff;
     background-color: #ffb0bd;
     border-radius: 5px;
+    border-color: transparent;
   }
 
 

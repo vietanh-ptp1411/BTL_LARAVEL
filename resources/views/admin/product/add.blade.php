@@ -72,7 +72,15 @@
                     </tr>
                     <tr>
                         <td>MoreImage</td>
-                        <td><input type='text' name='MoreImage' id='MoreImage' ></td>                  
+                        <td><input type='file' name='MoreImage' id='MoreImage' ></td>                  
+                    </tr>
+                    <tr>
+                        <td>MoreImage</td>
+                        <td><input type='file' name='MoreImage' id='MoreImage' ></td>                  
+                    </tr>
+                    <tr>
+                        <td>MoreImage</td>
+                        <td><input type='file' name='MoreImage' id='MoreImage' ></td>                  
                     </tr>
                     <tr>
                         <td>CreateBy</td>

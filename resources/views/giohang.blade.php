@@ -21,11 +21,18 @@
     <div class="contaier">
         <div class="gh">
             <div class="cart">
+                <?php
+                    use Gloudemans\Shoppingcart\Facades\Cart;
+                    $content = Cart::content();
+                    // echo '<pre>';
+                    // print_r($content) ;
+                    // echo '<pre>';
+                ?>
                 <table class="table-cart">
                     <thead>
                         <tr>
-                            <th width="20%">Sản phẩm</th>
-                            <th width="25%" class="text-center">Mô tả</th>
+                            <th width="20%" class="text-center">Ảnh</th>
+                            <th width="25%" class="text-center">Tên Sản Phẩm</th>
                             <th width="15%" class="text-center">Đơn giá</th>
                             <th width="15%" class="text-center">Số lượng</th>
                             <th width="15%" class="text-center">Tổng</th>
@@ -33,63 +40,46 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($content as $value)
                         <tr class="cart-item">
                             <td class="img">
-                                <a  href="" title="Túi ví đa năng Sanrio family heart kẻ ô 3x5x8 - Hồng nhạt">
-                                    <img style="width: 100%;height: 100%;" src="/anh/spm2.webp" alt="">
+                                <a  href="#" title="">
+                                    <img style="width: 100%;height: 100%;" src="{{URL::to('DoAn3_IMG/' .$value->options->image)}}" alt="">
                                 </a>
                             </td>
                             <td class="text-center">
-                                <a href="" title="Sữa Rửa Mặt Dạng Bọt Cấp Ẩm Chuyên Sâu Curél Foaming Facial Wash 150Ml">
-                                    Sữa Rửa Mặt Dạng Bọt Cấp Ẩm Chuyên Sâu Curél Foaming Facial Wash 150Ml
+                                <a href="#" title="">
+                                    {{$value->name}}
                                 </a>
                             </td>
                             <td class="text-center">
-                                <strong class="block">325.600đ</strong>
+                                <strong class="block">{{number_format($value->price )}} đ</strong>
                             </td>
                             <td class="text-center">
                                 <div class="slgh">
-                                    <button class="minus-btn" onclick="handleMinus()">-</button>
-                                    <input type="text" name="amount" value="1" id="amount">
-                                    <button class="minus-btn" onclick="handlePlus()">+</button>
+                                    <form action="{{route('update-cart-quatity')}}" method="POST">
+                                        {{csrf_field()}}
+                                    <input class="inputsoluong" type="number" name="quantity_cart" value="{{$value->qty}}" >
+                                    <input class="inputsoluong1" type="submit" name="update_quantity" value="Cập nhật">
+                                    <input class="inputsoluong1" type="hidden" name="rowId_cart" value="{{$value->rowId}}">
+                                    </form>
                                 </div>
-                                <script>
-                                    let amountElement = document.getElementById('amount');
-                                let amount = amountElement.value;
-                                // console.log(amount);
-
-                                let render=(amount)=>{
-                                    amountElement.value=amount
-                                }
-                                // handlePlus
-                                let handlePlus=()=>{
-                                    amount++
-                                    render(amount); 
-                                }
                                 
-                                let handleMinus=()=>{
-                                    if(amount>1)
-                                        amount--;
-                                    render(amount);
-                                }
-
-                                amountElement.addEventListener('input',()=>{
-                                    amount=amountElement.value;
-                                    amount=parseInt(amount);
-                                    amount=(isNaN(amount) ||amount==0)?1:amount;
-                                    render(amount);
-                                    console.log(amount);
-                                })
-                                </script>
                             </td>
                             <td class="text-center">
-                                <strong class="block">325.600đ</strong>
+                                <strong class="block">
+                                    <?php
+                                        $suptotal = $value->price * $value->qty;
+                                        echo number_format($suptotal);
+                                    ?> 
+                                đ</strong>
                             </td>
                             <td class="text-center">
-                                <a href="" class="remove">Xóa</a>
+                                <a href="{{URL::to('/delete_cart/'.$value->rowId)}}" class="remove">Xóa</a>
                             </td>
                         </tr>
                     </tbody>
+                    @endforeach
                 </table>
                 <div class="note">
                     <p>Hỗ trợ ship 20k  cho đơn hàng từ 300k nội thành HN, HCM</p>
@@ -97,7 +87,7 @@
                     <p>Đơn hàng trên website được xử lý trong giờ hành chính</p>
                 </div>
                 <div class="cart-total">
-                    <div class="total">Tổng: 60.000 <sup>đ</sup></div>
+                    <div class="total">Tổng:  {{Cart::priceTotal(0, ',','.')  }} <sup>đ</sup></div>
                     <div class="clearfix" style="height: 0;"></div>
                     <a href="{{route('home')}}" class="mstt">Tiếp tục mua sắm</a>
                     <a href="{{route('thanhtoan')}}" class="ttgh">Thanh toán</a>

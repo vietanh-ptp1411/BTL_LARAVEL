@@ -47,7 +47,7 @@ class CategoryController extends Controller
             'CatName' => $request->input('CatName'),
             'MetaTitle' => $request->input('MetaTitle'),
             'Stuffs' => $request->input('Stuffs'),
-            'RooID' => $request->input('RooID'),
+            'RootID' => $request->input('RootID'),
             'DisplayOrder' => $request->input('DisplayOrder'),
             'created_at' => date("Y-m-d H:i:s"),
             'CreateBy' => $request->input('CreateBy'),
@@ -60,7 +60,7 @@ class CategoryController extends Controller
         ];
         Category::create($data);
         //sau khi thêm xong hiển thị sang trang index thông báo thêm thành công
-        return redirect()->route('admin.categories.index')->with('success','Thêm thành công danh mục!');
+        return redirect()->route('categories.index')->with('success','Thêm thành công danh mục!');
     }
 
     /**
@@ -80,7 +80,7 @@ class CategoryController extends Controller
         $CatName = $category->CatName;
         $MetaTitle = $category->MetaTitle;
         $Stuffs = $category->Stuffs;
-        $RooID = $category->RooID;
+        $RootID = $category->RootID;
         $DisplayOrder = $category->DisplayOrder;
         $created_at = $category->created_at;
         $CreateBy = $category->CreateBy;
@@ -90,7 +90,7 @@ class CategoryController extends Controller
         $ShowMenu = $category->ShowMenu;
         $updated_at = $category->updated_at;
 
-        return view('admin.category.detail', compact('category','CatID','CatName','MetaTitle','Stuffs','RooID','DisplayOrder','created_at','CreateBy','ModifiedDate','MetaDescriptions','Status','ShowMenu','updated_at'));
+        return view('admin.category.detail', compact('category','CatID','CatName','MetaTitle','Stuffs','RootID','DisplayOrder','created_at','CreateBy','ModifiedDate','MetaDescriptions','Status','ShowMenu','updated_at'));
     }
 
 
@@ -134,7 +134,7 @@ class CategoryController extends Controller
         $category->CatName = $request->CatName;
         $category->MetaTitle = $request->MetaTitle;
         $category->Stuffs = $request->Stuffs;
-        $category->RooID = $request->RooID;
+        $category->RootID = $request->RootID;
         $category->DisplayOrder = $request->DisplayOrder;
         $category->CreateBy = $request->CreateBy;
         $category->ModifiedDate = $request->ModifiedDate;
@@ -143,7 +143,7 @@ class CategoryController extends Controller
         $category->ShowMenu = $request->ShowMenu;
         // Cập nhật các thuộc tính khác tương tự
         $category->save();
-        return redirect()->route('admin.categories.index', ['CatID' => $CatID])->with('success', 'Danh mục đã được cập nhật thành công.');
+        return redirect()->route('categories.index', ['CatID' => $CatID])->with('success', 'Danh mục đã được cập nhật thành công.');
     }
     
 
@@ -158,7 +158,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($CatID);
         $category->delete();
-        return redirect()->route('admin.categories.index')->with('success', 'Xóa danh mục thành công!');
+        return redirect()->route('categories.index')->with('success', 'Xóa danh mục thành công!');
     }
     
 

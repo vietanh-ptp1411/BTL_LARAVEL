@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class price extends Model
 {
     protected $table = 'price'; // Tên bảng trong cơ sở dữ liệu
-
+    
+    protected $primaryKey = 'PriID';
     // Các cột được phép gán giá trị
     protected $fillable = ['ProID', 'Cost'];
 

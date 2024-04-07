@@ -15,7 +15,7 @@ class Category extends Model
         'CatName',
         'MetaTitle',
         'Stuffs',
-        'RooID',
+        'RootID',
         'DisplayOrder',
         'created_at',
         'CreateBy',

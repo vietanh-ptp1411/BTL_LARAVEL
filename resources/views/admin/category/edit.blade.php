@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <td>RooID</td>
-                    <td><input type='text' name='RooID' id='RooID' value='{{$category->RooID}}'></td>                  
+                    <td><input type='text' name='RootID' id='RootID' value='{{$category->RootID}}'></td>                  
                 </tr>
                 <tr>
                     <td>DisplayOrder</td>
@@ -76,7 +76,7 @@
                         <div class="control-group hidden-phone">
                             <label class="control-label" for="textarea2"></label>
                             <div class="controls">
-                                <textarea class="cleditor" id="textarea2" name="MetaDescriptions" rows="3" value="{{ $category->MetaDescriptions }}"></textarea>
+                                <textarea class="cleditor" id="textarea2" name="MetaDescriptions" rows="3" value="">{{ $category->MetaDescriptions }}</textarea>
                             </div>
                         </div>
                     </td>
