@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="/font/fontchu.css">
 </head>
 <body>
-
-    @include('partials.header')
+    
+@include('partials.header')
 
 <!-- Kết thúc phần đầu trang -->
 
@@ -41,7 +41,10 @@
 
 
 
-
+<?php
+    echo Session::get('OrdID');
+    echo Session::get('CusID');
+?>
 <main class="main">
     <div class="main1">
         <div class="main2">
@@ -63,7 +66,7 @@
                                     <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-name" title="{{$sp->ProName}}">{{$sp->ProName}}</a>
                                     @foreach($price as $p)
                                         @if($p->ProID == $sp->ProID)
-                                            <div class="product-price" style="text-align: center;"><?=number_format($p->Cost)?> đ</div>
+                                            <div class="product-price" style="text-align: center;">{{number_format($p->Cost)}} đ</div>
                                         @endif
                                     @endforeach
                                 </div>
@@ -110,7 +113,7 @@
                                     <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-name" title="{{$sp->ProName}}">{{$sp->ProName}}</a>
                                     @foreach($price as $p)
                                         @if($p->ProID == $sp->ProID)
-                                            <div class="product-price" style="text-align: center;"><?=number_format($p->Cost)?> đ</div>
+                                            <div class="product-price" style="text-align: center;">{{number_format($p->Cost)}} đ</div>
                                         @endif
                                     @endforeach
                                 </div>

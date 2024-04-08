@@ -186,143 +186,128 @@ body{
     background-color: #e56266;
   }
   /* --------------------test--------------------- */
-  .dn{
+  .loginFb{
     width: 100%;
-    height: 480px;
-  }
-  .wrapper{
-    max-width: 700px;
-    background-color: #f5f5f5;
+    border-radius: 3px;
+    background: #2e4b88;
+    display: inline-block;
+    font-weight: normal;
+    margin-top: 20px;
+}
+.loginFb span, .loginGg span {
+    float: left;
+    width: 50px;
+    height: 100%;
+    font-size: 31px;
+    color: #fff;
+    border-right:1px solid #15416f;
+}
+.loginGg span{
+    border-right:1px solid #646668;
+}
+.loginFb a, .loginGg a{
+    color: #fff;
+    padding: 8px 5px;
+}
+.loginGg{
+    width: 100%;
+    background: #ea4235;
+    color: #fff;
+    display: inline-block;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.user-wrapper {
+    max-width: 600px;
+    /* background: #f5f5f5; */
     margin: 35px auto;
     border: 1px solid #f5f5f5;
     border-radius: 3px;
-    height: 444px;
-  }
-  .login {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-  }
-  .login__container {
-    width: 100%;
-  }
-  .login__container h1 {
-    text-align: center;
-    font-family: 'Nunito-Bold';
-    margin: 20px 0 20px 0;
-  }
-  .login__container form {
+    font-family: 'Nunito-Regular';
+}
+.user-nav {
     display: flex;
-    flex-direction: column;
-  }
-  .login__container form label {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-  .login__container form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  .login__container form button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #333;
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  .login__container form button:hover {
-    background: #555;
-  }
-  .login__container form a {
-    text-align: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: #333;
-  }
-  .login__container form a:hover {
-    color: #555;
-  }
-  .login__registerButton {
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: black;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: block;
-  }
-  /* style signup */
-  .signup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #f5f5f5;
-  }
-  .signup__container {
+    border-bottom: 2px solid #cccccc63;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(146, 146, 146, 0.14);
+}
+.user-nav a{
     width: 100%;
-    max-width: 400px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 10px;
+    border-bottom: 2px solid transparent;
+    color: #ffb0bd;
+}
+.dangnhap{
+  width: 100%;
+  color: #fff;
+  background-color: #FFB0BD;
+  border-color: #FFB0BD;
+  border-radius: .35rem;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+
+
+.user-nav a.active, .user-nav a:hover{
+    border-bottom: 2px solid #ffb0bd;
+}
+.user-wrapper #formAcount{
     padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .signup__container h1 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    text-align: center;
-  }
-  .signup__container form {
-    display: flex;
-    flex-direction: column;
-  }
-  .signup__container form label {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-  }
-  .signup__container form input {
-    padding: 10px;
+}
+#formAcount input{
+    font-size: 15px;
+    width: 95%;
+    clear: both;
+    padding: 8px 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  .signup__container form button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: #333;
-    color: #fff;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  .signup__container form button:hover {
-    background: #555;
-  }
-  .signup__container form a {
-    text-align: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: #333;
-  }
-  .signup__container form a:hover {
-    color: #555;
-  }
-  .signup__registerButton {
-    margin-top: 20px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: black;
-    font-size: 1.2rem;
-    cursor: pointer;
+}
+#formAcount input:focus{
+    outline: 0;
+}
+
+.user-foot {
+    font-size: 17px;
+    text-align: center!important;
+}
+.qmk-dktk{
+  display: flex;
+}
+.quenmk{
+    width: 120px;
+    padding: 15px 0;
     display: block;
-  }
+    font-size: 14px;
+    color: #333;
+}
+.texttt{
+    padding: 15px 0;
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.dangnhapkhac{
+    display: block;
+    font-size: 14px;
+}
+.quenmk:hover{
+    color: #ffb0bd;
+}
   
   
   /* ------------------phần cuoois----------------------- */

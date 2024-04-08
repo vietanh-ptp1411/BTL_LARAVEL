@@ -44,4 +44,21 @@ class HomeController extends Controller
         return response()->json($products);
     }
 
+
+    public function search(Request $request)
+    {
+        $danhMuc = Category::all();
+        $product = DB::table('product')->select('ProID','ProName','ProImage')->get();
+        $menu = DB::table('menu')->select('ID', 'Text')->whereNull('parentID')->get();
+        $price = DB::table('price')->select('ProID','Cost')->get();
+        $category = DB::table('category')->select('CatName','CatIMG')->whereNull('MetaTitle')->get();
+        
+
+
+        $keywords = $request->keywordsubmit;
+        $search_product = DB::table('product')->where('ProName' , 'like', '%' .$keywords.  '%')->get();
+
+        return view('search', compact('product', 'menu','category','price','danhMuc','search_product'));
+    }
+
 }

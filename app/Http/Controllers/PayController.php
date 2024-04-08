@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class PayController extends Controller
 {
@@ -24,9 +27,10 @@ class PayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function login_checkout()
     {
-        //
+        $danhMuc = Category::all();
+        return view('login' , compact('danhMuc'));
     }
 
     /**
@@ -35,9 +39,27 @@ class PayController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function pay_submit(Request $request)
     {
-        //
+        $data = array();
+
+        $data['ReceivingName'] = $request->input('ReceivingName');
+        $data['ReceivingPhone'] = $request->input('ReceivingPhone');
+        $data['ReceivingEmail'] = $request->input('ReceivingEmail');
+        $data['ReceivingAddress'] = $request->input('ReceivingAddress');
+        $data['Note'] = $request->input('Note');
+        $data['MoneyTotal'] = $request->input('MoneyTotal');
+        $data['Note'] = $request->input('Note');
+        $data['OrderDate'] = date("Y-m-d H:i:s");
+        $data['updated_at'] = date("Y-m-d H:i:s");
+        $data['created_at'] = date("Y-m-d H:i:s");
+        
+
+        $orderID = DB::table('order')->insertGetId($data);
+
+        // Lưu các giá trị vào phiên
+        Session::put('OrdID', $orderID);
+        return redirect('/thank');
     }
 
     /**
@@ -46,9 +68,10 @@ class PayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function thank()
     {
-        //
+        $danhMuc = Category::all();
+        return view('camon' , compact('danhMuc'));
     }
 
     /**

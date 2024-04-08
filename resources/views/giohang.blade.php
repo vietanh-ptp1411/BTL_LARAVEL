@@ -90,7 +90,18 @@
                     <div class="total">Tổng:  {{Cart::priceTotal(0, ',','.')  }} <sup>đ</sup></div>
                     <div class="clearfix" style="height: 0;"></div>
                     <a href="{{route('home')}}" class="mstt">Tiếp tục mua sắm</a>
-                    <a href="{{route('thanhtoan')}}" class="ttgh">Thanh toán</a>
+                    <?php
+                            $customerID= Session::get('CusID');
+                            if($customerID != NULL){
+                        ?>
+                            <a href="{{ route('thanhtoan') }}" class="ttgh">Thanh toán</a>
+                        <?php
+                        }else {
+                            ?>
+                            <a href="{{ route('login_checkout') }}" class="ttgh">Thanh toán</a>
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
             <div class="spdx">

@@ -9,13 +9,12 @@
                 <a href="{{route('home')}}"><img src="/DoAn3_IMG/logo.png" style="height: 66px;width: 250px; padding-top: 15px;"></a>
             </div>
             <div class="box">
-                <form class="form">
+                <form class="form" action="{{route('search')}}" method="POST">
+                    {{ csrf_field() }}
                     <div class="search">
-                        <input type="text" class="search1" placeholder="Tìm kiếm sản phẩm">
+                        <input type="text" class="search1" name="keywordsubmit" placeholder="Tìm kiếm sản phẩm">
                         <span class="search2">
-                            <button class="search3">
-                                <i class="fa fa-search"></i>
-                            </button>
+                            <button type="submit" class="search3" ><i class="fa fa-search"></i></button>
                         </span>
                     </div>
                 </form> 
@@ -41,12 +40,19 @@
             <div  class="login">
                 <div class="login1">
                     <ul class="login2">
-                        <li style="width: 120px;">
-                            <a href="{{route('login')}}">Đăng Nhập |</a>
-                        </li>
-                        <li style="width:100px ;">
-                            <a href="">Đăng Ký</a>
-                        </li>
+                        <?php
+                            $customerID= Session::get('CusID');
+                            if($customerID != NULL){
+                        ?>
+                            <li style="width: 120px;"><a href="{{route('logout')}}">Đăng xuất</a></li>
+                        <?php
+                        }else {
+                            ?>
+                            <li style="width: 120px;"><a href="{{route('login')}}">Đăng Nhập</a></li>
+                            <?php
+                        }
+                        ?>
+                        
                     </ul>
                     <div class="count-cart">
                         <a href="{{route('giohang')}}"><div class="count-cart-icon"></div></a>

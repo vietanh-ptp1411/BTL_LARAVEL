@@ -26,6 +26,8 @@ Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
     Route::get('/home',  'index')->name('home');
     Route::get('/get-more-products', 'getMoreProducts');
     Route::get('/get-more-products2', 'getMoreProducts2');
+    Route::post('/search', 'search')->name('search');
+
 });
 
 
@@ -38,9 +40,10 @@ Route::controller(App\Http\Controllers\detailcontroller::class)->group(function(
 //Login
 Route::controller(App\Http\Controllers\LoginController::class)->group(function(){
     Route::get('/login',  'showLoginForm')->name('login');
-    Route::get('/loginsubmit',  'login')->name('login.submit');
+    Route::post('/loginsubmit',  'login')->name('login.submit');
     Route::get('/register',  'showRegisterForm')->name('register');
-    Route::get('/registersubmit',  'register')->name('register.submit');
+    Route::post('/registersubmit',  'register')->name('register.submit');
+    Route::get('/logout',  'logout')->name('logout');
 });
 
 
@@ -64,6 +67,8 @@ Route::controller(App\Http\Controllers\CartController::class)->group(function(){
 //Thanh toán
 Route::controller(App\Http\Controllers\PayController::class)->group(function(){
     Route::get('/thanhtoan',  'index')->name('thanhtoan');
+    Route::get('/checklogin',  'login_checkout')->name('login_checkout');
+    Route::post('/paysubmit',  'pay_submit')->name('pay_submit');
 });
 
 
