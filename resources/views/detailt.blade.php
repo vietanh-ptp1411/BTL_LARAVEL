@@ -65,7 +65,7 @@
                     </div>
                     <div class="gia">
                         <div class="gia-price">
-                            <span><?=number_format($product['Cost'])?>đ</span>
+                            <span>{{number_format($product['Cost'])}}đ</span>
                         </div>
                     </div>
                     <div class="msl">
@@ -151,7 +151,7 @@
             </div>
 
             <div class="k5">
-                <h2><a href="">Các sản phẩm đã xem</a></h2>
+                <h2><a href="">Các sản phẩm liên quan</a></h2>
                 <div id="wrapper">
                     <ul class="product">
                     @foreach($sp as $s)

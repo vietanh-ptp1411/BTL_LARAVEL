@@ -41,10 +41,6 @@
 
 
 
-<?php
-    echo Session::get('OrdID');
-    echo Session::get('CusID');
-?>
 <main class="main">
     <div class="main1">
         <div class="main2">
@@ -104,7 +100,7 @@
                         <li>
                             <div class="product-item">
                                 <div class="product-top">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
+                                    <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-thumb">
                                         <img src="DoAn3_IMG/{{$sp->ProImage}}" alt="">  
                                     </a>
                                     <a href="" class="buy-now">Mua ngay</a>

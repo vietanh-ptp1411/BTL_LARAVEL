@@ -83,7 +83,7 @@
                 </div>
                 <div class="block-item">
                     <label class="label-check">
-                        <input name="payment_option" value="direct" type="radio" class="check-input" checked>
+                        <input name="payment_option" value="TrucTiep" type="radio" class="check-input" checked>
                         <div class="text-block">Thanh toán khi nhận hàng</div>
                     </label>
                     <div class="pay">
@@ -157,24 +157,23 @@
                             <tr >
                                 <td colspan="2"><strong>Tạm tính</strong></td>
                                 <td style="text-align: right; font-weight: bold; ">
-                                    {{Cart::priceTotal(0, ',','.')  }}
+                                    {{Cart::priceTotal(0, ',','.')  }} đ
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2"><strong>Phí vận chuyển</strong></td>
-                                <td style="text-align: right;">30,000đ</td>
+                                <td style="text-align: right;">0 đ</td>
                             </tr>
                             <tr>
                                 <td colspan="2"><strong>Mã giảm giá</strong></td>
-                                <td style="text-align: right;">0đ</td>
+                                <td style="text-align: right;">0 đ</td>
                             </tr>
                             <tr>
                                 <td colspan="2"><strong >Tổng cộng</strong></td>
-                                <td style="text-align: right;" name="MoneyTotal"><?php
-                                    $suptotal = $value->price * $value->qty +30000;
-                                    echo number_format($suptotal);
-                                ?> đ
+                                <td style="text-align: right;" name="MoneyTotal">
+                                    {{Cart::priceTotal(0, ',','.')  }} đ
                                 </td>
+                                <input type="hidden" name="MoneyTotal" value="<?php echo $suptotal; ?>">
                             </tr>
                         </tfoot>
                     </table>

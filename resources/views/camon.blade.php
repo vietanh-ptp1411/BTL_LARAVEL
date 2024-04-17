@@ -33,7 +33,7 @@
                     </div>
                     <div class="camon-text">
                         <p>
-                            <strong>Beauty Box đã nhận được yêu cầu đặt hàng của bạn!</strong>
+                            <strong>BaloOnline đã nhận được yêu cầu đặt hàng của bạn!</strong>
                         </p>
                         <p>Mã đơn hàng của bạn là&nbsp;
                             <strong>
@@ -43,7 +43,7 @@
                         <p>Bộ phận CSKH sẽ gọi điện xác nhận đơn hàng và hướng dẫn thanh toán</p>
                         <p>Đơn hàng trên website được xử lý trong giờ hành chính</p>
                         <p>Sau khi được xác nhận, đơn hàng sẽ được giao cho bạn trong vòng 2-4 ngày</p>
-                        <p>Cảm ơn bạn đã&nbsp;đồng hành cùng Moji.</p>
+                        <p>Cảm ơn bạn đã&nbsp;đồng hành cùng BaloOnline.</p>
                     </div>
                 </div>
                 <a href="/danhmucsp/danhmuc.html" class="camon-back" title="Quay lại trang sản phẩm">
@@ -52,69 +52,6 @@
             </div>
         </div>
     </form>
-
-    <div class="k5">
-        <h2><a href="">Các sản phẩm đã xem</a></h2>
-        <div id="wrapper">
-            <ul class="product">
-                <li>
-                    <div class="product-item">
-                        <div class="product-top">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
-                                <img src="/anh/spm1.webp" alt="">  
-                            </a>
-                            <a href="" class="buy-now">Mua ngay</a>
-                        </div>
-                        <div class="product-info">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-name" title="Tinh Chất Dưỡng Sáng Da AHC Niacin Biome Mela Scissors Max Essence 30ml">Tinh Chất Dưỡng Sáng Da AHC Niacin Biome Mela Scissors Max Essence 30ml</a>
-                            <div class="product-price">1.050.000đ</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-top">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
-                                <img src="/anh/spm2.webp" alt="">  
-                            </a>
-                            <a href="" class="buy-now">Mua ngay</a>
-                        </div>
-                        <div class="product-info">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-name" title="Sữa Rửa Mặt Dạng Bọt Cấp Ẩm Chuyên Sâu Curél Foaming Facial Wash 150Ml">Sữa Rửa Mặt Dạng Bọt Cấp Ẩm Chuyên Sâu Curél Foaming Facial Wash 150Ml</a>
-                            <div class="product-price">325.600đ</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-top">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
-                                <img src="/anh/spm3.webp" alt="">  
-                            </a>
-                            <a href="" class="buy-now">Mua ngay</a>
-                        </div>
-                        <div class="product-info">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-name" title="Phấn Nước Căng Mướt Da Clio Kill Cover Mesh Glow Cushion SPF50+, PA++++ 15g (tặng kèm lõi)">Quạt USB cầm tay sạc tích điện Cute dinosaur khủng long heart paw</a>
-                            <div class="product-price">819.000đ</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="product-item">
-                        <div class="product-top">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
-                                <img src="/anh/spm4.webp" alt="">  
-                            </a>
-                            <a href="" class="buy-now">Mua ngay</a>                    
-                        </div>
-                        <div class="product-info">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-name" title="Má Hồng Dạng Kem Ofélia Lolli Liquid Blush 4.3g">Má Hồng Dạng Kem Ofélia Lolli Liquid Blush 4.3g</a>
-                            <div class="product-price">199.000đ</div>
-                        </div>
-                    </div>
-                </li>
-        </div>
-    </div>
 </main>
 
 

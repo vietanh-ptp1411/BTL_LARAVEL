@@ -32,13 +32,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     div.className = "product-item";
                     div.innerHTML = `
                         <div class="product-top">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
+                            <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-thumb">
                                 <img src="DoAn3_IMG/${product.ProImage}" alt="">  
                             </a>
                             <a href="" class="buy-now">Mua ngay</a>
                         </div>
                         <div class="product-info">
-                            <a href="${product.ProID}" class="product-name" title="${product.ProName}">${product.ProName}</a>
+                            <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-name" title="${product.ProName}">${product.ProName}</a>
                             <div class="product-price" style="text-align: center;">${product.price} đ</div>
                         </div>`;
                     li.appendChild(div);
@@ -72,13 +72,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     div.className = "product-item";
                     div.innerHTML = `
                         <div class="product-top">
-                            <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
+                            <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-thumb">
                                 <img src="DoAn3_IMG/${product.ProImage}" alt="">  
                             </a>
                             <a href="" class="buy-now">Mua ngay</a>
                         </div>
                         <div class="product-info">
-                            <a href="${product.ProID}" class="product-name" title="${product.ProName}">${product.ProName}</a>
+                            <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-name" title="${product.ProName}">${product.ProName}</a>
                             <div class="product-price" style="text-align: center;">${product.price} đ</div>
                         </div>`;
                     li.appendChild(div);

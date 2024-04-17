@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 
 class BlogController extends Controller
@@ -16,7 +17,8 @@ class BlogController extends Controller
     public function index()
     {
         $danhMuc = Category::all();
-        return view('blog',compact('danhMuc'));
+        $blog = DB::table('blog')->select('BlogID','Name','Image','Description')->get();
+        return view('blog',compact('danhMuc','blog'));
     }
 
     /**
@@ -24,9 +26,13 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function blogdetail($BlogID)
     {
-        //
+        $danhMuc = Category::all();
+
+        $blogdetail = DB::table('blog')->where('BlogID', $BlogID)->first();
+        // dd($blogdetail);
+        return view('blogdetail', compact('danhMuc','blogdetail'));
     }
 
     /**

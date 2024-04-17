@@ -107,6 +107,34 @@
             <div class="spdx">
                 <h2><a href="">Sản Phẩm Mới</a></h2>
                 <div id="wrapper">
+                    <ul class="product" id="product-list">
+                        <!-- Hiển thị 8 sản phẩm ban đầu -->
+                        @foreach($product->take(4) as $sp)
+                        <li>
+                            <div class="product-item">
+                                <div class="product-top">
+                                    <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-thumb">
+                                        <img src="DoAn3_IMG/{{$sp->ProImage}}" alt="">  
+                                    </a>
+                                    <a href="" class="buy-now">Mua ngay</a>
+                                </div>
+                                <div class="product-info">
+                                    <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-name" title="{{$sp->ProName}}">{{$sp->ProName}}</a>
+                                    @foreach($price as $p)
+                                        @if($p->ProID == $sp->ProID)
+                                            <div class="product-price" style="text-align: center;">{{number_format($p->Cost)}} đ</div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>   
+            </div>
+            {{-- <div class="spdx">
+                <h2><a href="">Sản Phẩm Mới</a></h2>
+                <div id="wrapper">
                     <ul class="product">
                         <li>
                             <div class="product-item">
@@ -165,6 +193,7 @@
                             </div>
                         </li>
                 </div>
+            </div> --}}
         </div>
     </div>
 </main>

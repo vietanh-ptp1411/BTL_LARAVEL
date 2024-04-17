@@ -22,7 +22,9 @@ class CartController extends Controller
     public function index()
     {
         $danhMuc = Category::all();
-        return view('giohang', compact('danhMuc'));
+        $product = DB::table('product')->select('ProID','ProName','ProImage')->get();
+        $price = DB::table('price')->select('ProID','Cost')->get();
+        return view('giohang', compact('danhMuc','product','price'));
     }
 
     /**

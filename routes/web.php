@@ -69,6 +69,7 @@ Route::controller(App\Http\Controllers\PayController::class)->group(function(){
     Route::get('/thanhtoan',  'index')->name('thanhtoan');
     Route::get('/checklogin',  'login_checkout')->name('login_checkout');
     Route::post('/paysubmit',  'pay_submit')->name('pay_submit');
+    Route::get('/thank',  'thank')->name('thank');
 });
 
 
@@ -76,13 +77,9 @@ Route::controller(App\Http\Controllers\PayController::class)->group(function(){
 //Blog
 Route::controller(App\Http\Controllers\BlogController::class)->group(function(){
     Route::get('/blog',  'index')->name('blog');
+    Route::get('/blogdetail/{BlogID}',  'blogdetail')->name('blogdetail');
+
 });
-
-
-
-
-
-
 
 
 

@@ -44,11 +44,12 @@
                             $customerID= Session::get('CusID');
                             if($customerID != NULL){
                         ?>
-                            <li style="width: 120px;"><a href="{{route('logout')}}">Đăng xuất</a></li>
+                            <li style="margin-right: 10px"></li>
+                            <li><a href="{{route('logout')}}">Đăng xuất</a></li>
                         <?php
                         }else {
                             ?>
-                            <li style="width: 120px;"><a href="{{route('login')}}">Đăng Nhập</a></li>
+                            <li><a href="{{route('login')}}">Đăng Nhập</a></li>
                             <?php
                         }
                         ?>
