@@ -2,7 +2,7 @@
 ///////////////////////////////////chuyển slide///////////////////
 var index=1;
 changeimage =function(){
-var imgs = ["/anh/slide1.webp","/anh/slide2.webp","/anh/slide3.webp"];
+var imgs = ["/DoAn3_IMG/slidehome1.png","/DoAn3_IMG/slidehome2.jpg","/DoAn3_IMG/slidehome3.webp"];
     document.getElementById("imgg").src =imgs[index];
     index++;
     if (index==3){

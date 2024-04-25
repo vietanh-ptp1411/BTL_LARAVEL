@@ -34,7 +34,9 @@ class BlogController extends Controller
         // dd($blogdetail);
         return view('blogdetail', compact('danhMuc','blogdetail'));
     }
-
+    public function blogde(){
+        return view('a');
+    }
     /**
      * Store a newly created resource in storage.
      *

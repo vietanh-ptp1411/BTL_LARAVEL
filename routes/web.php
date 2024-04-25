@@ -78,7 +78,7 @@ Route::controller(App\Http\Controllers\PayController::class)->group(function(){
 Route::controller(App\Http\Controllers\BlogController::class)->group(function(){
     Route::get('/blog',  'index')->name('blog');
     Route::get('/blogdetail/{BlogID}',  'blogdetail')->name('blogdetail');
-
+    Route::get('/blogde',  'blogde')->name('blogde');
 });
 
 
