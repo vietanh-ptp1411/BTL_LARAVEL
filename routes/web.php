@@ -124,3 +124,14 @@ Route::controller(App\Http\Controllers\admin\ProductController::class)->group(fu
     Route::put('/updateProduct/{ProID}',  'update')->name('product.update');
     Route::get('/destroyProduct/{ProID}',  'destroy')->name('product.destroy');
 });
+
+
+Route::controller(App\Http\Controllers\admin\OrderController::class)->group(function(){
+    Route::get('/indexOrder', 'index')->name('order.index');
+    Route::get('/createOrder',  'create')->name('order.create');
+    Route::post('/storeOrder',  'store')->name('order.store');
+    Route::get('/showOrder/{ProID}',  'show')->name('order.detail');
+    Route::get('/editorder/{ProID}',  'edit')->name('order.edit');
+    Route::put('/updateorder/{ProID}',  'update')->name('order.update');
+    Route::get('/destroyorder/{ProID}',  'destroy')->name('order.destroy');
+});
