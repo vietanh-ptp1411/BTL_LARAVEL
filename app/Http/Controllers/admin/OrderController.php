@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\SalesInvoice;
+
 
 class OrderController extends Controller
 {
@@ -89,9 +91,27 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function confirm($OrdID)
     {
-        //
+        $order = order::find($OrdID);
+        if (!$order) {
+            // Xử lý khi không tìm thấy sản phẩm
+            return abort(404); // Trả về trang lỗi 404
+        }
+        $SalesInvoice = new SalesInvoice();
+        // Sao chép các thông tin từ đơn hàng sang hóa đơn
+        $SalesInvoice->CusID = $order->CusID;
+        $SalesInvoice->SalName = 'Hóa đơn tạo từ đơn hàng có ID: ' . $order->OrdID;
+        $SalesInvoice->SalDate = now(); // Đặt ngày bán là ngày hiện tại
+        $SalesInvoice->MoneyTotal = $order->MoneyTotal;
+        $SalesInvoice->Note = $order->Note;
+        // Lưu hóa đơn
+        $SalesInvoice->save();
+
+        $order->Status = 1;
+        $order->save();
+        
+        return redirect()->route('order.index')->with('success', 'Đã xác nhận đơn hàng.');
     }
 
     /**

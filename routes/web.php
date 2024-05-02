@@ -128,10 +128,11 @@ Route::controller(App\Http\Controllers\admin\ProductController::class)->group(fu
 
 Route::controller(App\Http\Controllers\admin\OrderController::class)->group(function(){
     Route::get('/indexOrder', 'index')->name('order.index');
-    Route::get('/createOrder',  'create')->name('order.create');
-    Route::post('/storeOrder',  'store')->name('order.store');
-    Route::get('/showOrder/{ProID}',  'show')->name('order.detail');
-    Route::get('/editorder/{ProID}',  'edit')->name('order.edit');
-    Route::put('/updateorder/{ProID}',  'update')->name('order.update');
-    Route::get('/destroyorder/{ProID}',  'destroy')->name('order.destroy');
+    Route::get('/showOrder/{OrdID}',  'show')->name('order.detail');
+    Route::get('/destroyOrder/{OrdID}',  'destroy')->name('order.destroy');
+    Route::get('/confirmOrder/{OrdID}',  'confirm')->name('order.confirm'); 
+});
+
+Route::controller(App\Http\Controllers\admin\SalesInvoiceController::class)->group(function(){
+    Route::get('/indexSalesInvoice', 'index')->name('SalesInvoice.index');
 });

@@ -22,4 +22,8 @@ class Customer extends Model
         'updated_at',
         'created_at'
     ];
+    public function saleinvoice()
+    {
+        return $this->hasOne(SalesInvoice::class, 'CusID', 'CusID');
+    }
 }

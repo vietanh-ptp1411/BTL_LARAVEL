@@ -30,36 +30,30 @@
                     <span class="sokyhieu">1</span>
                     Thông tin người nhận
                 </h2>
-                <div class="form-group">
-                    <input type="text" name="ReceivingName" class="input-ten" placeholder="Họ tên *">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="ReceivingPhone" class="input-ten" placeholder="Điện thoại *">
-                </div>
-                <div class="form-group">
-                    <input type="text" name="ReceivingEmail" class="input-ten" placeholder="Email *">
-                </div>
-                <div class="form-group">
-                    <select class="select-ten" name="calc_shipping_provinces" required="">
-                        <option value="">Tỉnh / Thành phố</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <select class="select-ten" name="calc_shipping_district" required=""">
-                        <option value="">Quận/ Huyện *</option>
-                    </select>
-                </div>
-                <input class="billing_address_1" name="" type="hidden" value="">
-                <input class="billing_address_2" name="" type="hidden" value="">
-                <script src="{{ asset('js/thanhtoan.js') }}"></script>
-                
-        
-                <div class="form-group">
-                    <input type="text" name="ReceivingAddress" class="input-ten"  placeholder="Địa chỉ chi tiết *">
-                </div>
-                <div class="form-group-tera">
-                    <textarea type="text" name="Note" class="textarea-ten" rows="3 " placeholder="Ghi chú"></textarea>
-                </div>
+                @foreach($customer as $cus)
+                    @if($cus->CusID == Session::get('CusID'))
+                        <div class="form-group">
+                            <p>Tên người nhận:</p>
+                            <input type="text" name="ReceivingName" class="input-ten" value="{{ old('ReceivingName', isset($cus) ? $cus->CusName : '') }}">
+                        </div>
+                        <div class="form-group">
+                            <p>Số điện thoại liên hệ:</p>
+                            <input type="text" name="ReceivingPhone" class="input-ten" placeholder="{{$cus->CusPhone}}">
+                        </div>
+                        <div class="form-group">
+                            <p>Email liên hệ:</p>
+                            <input type="text" name="ReceivingEmail" class="input-ten" placeholder="{{$cus->CusEmail}}">
+                        </div>
+                        <div class="form-group">
+                            <p>Địa chỉ nhận hàng:</p>
+                            <input type="text" name="ReceivingAddress" class="input-ten"  placeholder="{{$cus->CusAddress}}">
+                        </div>
+                        <div class="form-group-tera">
+                            <p>Ghi chú:</p>
+                            <textarea type="text" name="Note" class="textarea-ten" rows="3 " placeholder="...."></textarea>
+                        </div>
+                    @endif
+                @endforeach
                 <div>Đơn hàng trên website được xử lý trong giờ hành chính</div>
                 <div>Vui lòng liên hệ fanpage ngoài khung giờ trên để được hỗ trợ</div>
             </div>

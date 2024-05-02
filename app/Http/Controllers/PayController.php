@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Category;
+use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
 
 class PayController extends Controller
@@ -20,8 +21,9 @@ class PayController extends Controller
      */
     public function index()
     {
+        $customer = Customer::all();
         $danhMuc = Category::all();
-        return view('thanhtoan', compact('danhMuc'));
+        return view('thanhtoan', compact('danhMuc','customer'));
     }
 
     /**
@@ -62,7 +64,6 @@ class PayController extends Controller
         }
         $data['Note'] = $request->input('Note');
         $data['MoneyTotal'] = $request->input('MoneyTotal');
-        $data['Note'] = $request->input('Note');
         $data['OrderDate'] = date("Y-m-d H:i:s");
         $data['updated_at'] = date("Y-m-d H:i:s");
         $data['created_at'] = date("Y-m-d H:i:s");

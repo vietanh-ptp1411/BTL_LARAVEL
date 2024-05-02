@@ -1,7 +1,7 @@
 <div id="sidebar-left" class="span2">
 	<div class="nav-collapse sidebar-nav">
 		<ul class="nav nav-tabs nav-stacked main-menu">
-			<li><a href="{{route('admin')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
+			<li><a href="{{route('admin')}}"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Trang chủ</span></a></li>	
 			<li>
 				<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Danh Mục </span><span class="label label-important"> 2 </span></a>
 				<ul>
@@ -17,9 +17,9 @@
 				</ul>
 			</li>	
 			
-			<li><a href="{{route('order.index')}}"><i class="icon-list-alt"></i><span class="hidden-tablet"> Order</span></a></li>
-			<li><a href="/messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Messages</span></a></li>
-			<li><a href="/tasks.html"><i class="icon-tasks"></i><span class="hidden-tablet"> Tasks</span></a></li>
+			<li><a href="{{route('order.index')}}"><i class="icon-list-alt"></i><span class="hidden-tablet"> Đơn hàng</span></a></li>
+			<li><a href="/messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> Hóa Đơn Nhập</span></a></li>
+			<li><a href="{{route('SalesInvoice.index')}}"><i class="icon-tasks"></i><span class="hidden-tablet"> Hóa đơn bán</span></a></li>
 			<li><a href="/ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> UI Features</span></a></li>
 			<li><a href="/widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Widgets</span></a></li>
 			

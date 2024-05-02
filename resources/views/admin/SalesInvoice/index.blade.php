@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
  
 @section('title')
-    <title>Đơn hàng</title>
+    <title>Hóa đơn bán</title>
 @endsection
  
 @section('content')
@@ -25,7 +25,7 @@
 	<div class="row-fluid sortable">		
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white user"></i><span class="break"></span>Order</h2>
+				<h2><i class="halflings-icon white user"></i><span class="break"></span>Hóa đơn bán</h2>
 				<div class="box-icon">
 					<a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
 					<a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
@@ -43,21 +43,25 @@
 							<th style="text-align: center;">Trạng thái</th>
 							<th style="text-align: center;">Chi tiết</th>
 							<th style="text-align: center;">Xóa đơn hàng</th>
-							<th style="text-align: center;">Xác nhận đơn hàng</th>
+							<th style="text-align: center;">Xuất hóa đơn bán</th>
 						</tr>
 					</thead>   
 					<tbody>
 						@php $i = 1; @endphp
-						@foreach($order as $od)
+						@foreach($salesinvoice as $sal)
 						<tr>
 							<td style="text-align: center;">{{ $i++ }}</td>
-							<td style="text-align: left;  padding-left: 60px;">{{ $od->ReceivingName }}</td>
-							<td style="text-align: center;">{{ number_format($od->MoneyTotal) }}đ</td>
-							<td style="text-align: center;">{{ $od->Payment }}</td>
-							<td style="text-align: center;"><input type="checkbox" {{ $od->Status ? 'checked' : '' }}></td>
-							<td style="text-align: center;"><a href="{{route('order.detail',$od->OrdID)}}" class="btn btn-primary">Detail</a></td>
-							<td style="text-align: center;"><a onclick="return confirm('Bạn có muốn hủy đơn hàng này không')" href="{{ route('order.destroy',$od->OrdID) }}" class="btn btn-danger">Destroy</a></td>
-							<td style="text-align: center;"><a href="{{ route('order.confirm', $od->OrdID) }}" class="btn btn-warning">Confirm</a></td>	
+                            @foreach($customer as $cus)
+                                @if($cus->CusID == $sal->CusID)
+                                    <td style="text-align: left;  padding-left: 60px;">{{$cus->CusName}}</td>
+                                @endif
+                            @endforeach
+							<td style="text-align: center;">{{ number_format($sal->MoneyTotal) }}đ</td>
+							<td style="text-align: center;">{{ $sal->Payment }}</td>
+							<td style="text-align: center;"><input type="checkbox" {{ $sal->Status ? 'checked' : '' }}></td>
+							<td style="text-align: center;"><a href="" class="btn btn-primary">Detail</a></td>
+							<td style="text-align: center;"><a onclick="return confirm('Bạn có muốn hủy đơn hàng này không')" href="" class="btn btn-danger">Destroy</a></td>
+							<td style="text-align: center;"><a href="" class="btn btn-warning">Confirm</a></td>	
 						</tr>
 						@endforeach
 					</tbody>
