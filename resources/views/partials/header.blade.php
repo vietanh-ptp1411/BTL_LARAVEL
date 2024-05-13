@@ -37,29 +37,43 @@
                 </div>
             </div>
 
-            <div  class="login">
+            <div class="login">
                 <div class="login1">
-                    <ul class="login2">
+                    <div class="account">
                         <?php
-                            $customerID= Session::get('CusID');
-                            if($customerID != NULL){
+                        $customerID = Session::get('CusID');
+                        if ($customerID != NULL) {
+                            $userName = Session::get('CusName');
                         ?>
-                            <li style="margin-right: 10px"></li>
-                            <li><a href="{{route('logout')}}">Đăng xuất</a></li>
+                            <a href="#" class="account-link"><?php echo $userName; ?></a>
                         <?php
-                        }else {
-                            ?>
-                            <li><a href="{{route('login')}}">Đăng Nhập</a></li>
-                            <?php
+                        } else {
+                        ?>
+                            <a href="{{ route('login') }}" class="account-link">Đăng Nhập</a>
+                        <?php
                         }
                         ?>
-                        
-                    </ul>
+                        <div class="dropdown-content">
+                            <ul class="login2">
+                                <?php
+                                if ($customerID != NULL) {
+                                ?>
+                                    <li style="margin-right: 10px"></li>
+                                    <li><a href="{{ route('logout') }}">Đăng xuất</a></li>
+                                <?php
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="count-cart">
-                        <a href="{{route('giohang')}}"><div class="count-cart-icon"></div></a>
+                        <a href="{{ route('giohang') }}">
+                            <div class="count-cart-icon"></div>
+                        </a>
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
     

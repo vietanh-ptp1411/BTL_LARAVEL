@@ -106,16 +106,13 @@
     /* ------------------------------------------------------------- */
     
     .login{
-      /* width: 255px; */
-      flex: 25%;
+      flex: 20%;
       height: 102px;
       padding: 0 15px 0 15px;
-      flex: 0 0 20%;
     }
     
     .login1{
       display: flex;
-      width: 255px;
       height: 85px;
       align-items: center !important;
       padding-bottom: 16px;
@@ -127,7 +124,7 @@
       padding: 10px 15px 0 0;
       font-family: 'Nunito-Bold';
       font-size: 16px;
-      display: flex;
+      text-align: center;
     }
     .login2 li{
       display: inline;
@@ -142,10 +139,53 @@
     .login2 li a:hover {     
       color: #ffb0bd;
     }
+    .account {
+      position: relative;
+      display: inline-block;
+      padding: 10px 15px 0 0;
+      width: 200px;
+      font-size: 16px;
+      text-align: center;
+      font-family:'Nunito-Bold';  
+    }
+    
+    .account-link {
+        display: block;
+        text-decoration: none;
+        color: #000;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: transparent;
+        width: 200px;
+        z-index: 1;
+        border: 1px solid #ddd;
+    }
+    
+    .account:hover .dropdown-content {
+        display: block;
+    }
+    
+    .account .dropdown-content li {
+        list-style-type: none;
+        margin: 5px 0;
+    }
+    
+    .account .dropdown-content li a {
+        text-decoration: none;
+        color: #333;
+    }
+    
+    .account .dropdown-content li a:hover {
+        color: #ffb0bd;
+    }
     
     .count-cart{
       position: static;
       display: block;
+      padding: 10px 10px 0 10px;
     }
     .count-cart-icon{
       width: 20px;
@@ -156,6 +196,8 @@
       cursor: pointer;
       margin-top: 1px;
     }
+
+    
     /*-----------------------------------------------------------------*/
     .menu3{
       margin-bottom: 10px;
@@ -251,7 +293,6 @@
         display: flex;
         align-items: center;
         width: 730px;
-        height: 280px;
     }
     .camon-img{
         padding-left: 25px;
@@ -264,7 +305,6 @@
         padding-left: 65px;
         font-size: 19px;
         width: 445px;
-        height: 256.5px;
         font-family: 'Nunito-Regular';
         line-height: 1.5;
     }

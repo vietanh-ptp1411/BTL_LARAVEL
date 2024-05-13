@@ -25,5 +25,10 @@ class Order extends Model
             'created_at',
             'updated_at',
     ];
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'CusID', 'CusID');
+    }
 }
+
 

@@ -5,8 +5,11 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Customer;
 use App\Models\OrderDetail;
 use App\Models\SalesInvoice;
+use App\Models\SalesInvoiceDetail;
+use Illuminate\Support\Facades\DB;
 
 
 class OrderController extends Controller
@@ -57,7 +60,7 @@ class OrderController extends Controller
             // Xử lý khi không tìm thấy category với CatID tương ứng
             return abort(404); // Trả về trang lỗi 404
         }
-        $OrdID = $order->OrdID;
+        $MaDonHang = $order->MaDonHang;
         $CusID = $order->CusID;
         $ReceivingName = $order->ReceivingName;
         $OrderDate = $order->OrderDate;
@@ -81,7 +84,7 @@ class OrderController extends Controller
             $Prices[] = $detail->Price;
         }
         
-        return view('admin.order.detail', compact('order','orderDetails','OrdID','CusID','ReceivingName','OrderDate','Status','ReceivingAddress','ReceivingPhone','MoneyTotal','Note','ReceivingEmail','Payment','created_at','updated_at','ProIDs','Quantities','Prices'));
+        return view('admin.order.detail', compact('order','orderDetails','MaDonHang','CusID','ReceivingName','OrderDate','Status','ReceivingAddress','ReceivingPhone','MoneyTotal','Note','ReceivingEmail','Payment','created_at','updated_at','ProIDs','Quantities','Prices'));
     
     }
 
@@ -91,29 +94,48 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function confirm($OrdID)
     {
-        $order = order::find($OrdID);
+        $order = Order::find($OrdID);
         if (!$order) {
-            // Xử lý khi không tìm thấy sản phẩm
-            return abort(404); // Trả về trang lỗi 404
+            return abort(404); // Xử lý khi không tìm thấy đơn hàng
         }
-        $SalesInvoice = new SalesInvoice();
-        // Sao chép các thông tin từ đơn hàng sang hóa đơn
-        $SalesInvoice->CusID = $order->CusID;
-        $SalesInvoice->SalName = 'Hóa đơn tạo từ đơn hàng có ID: ' . $order->OrdID;
-        $SalesInvoice->SalDate = now(); // Đặt ngày bán là ngày hiện tại
-        $SalesInvoice->MoneyTotal = $order->MoneyTotal;
-        $SalesInvoice->Note = $order->Note;
-        // Lưu hóa đơn
-        $SalesInvoice->save();
-
+    
+        $CusName = $order->customer->CusName; // Lấy tên khách hàng từ đơn hàng
+    
+        // Tạo một đối tượng SalesInvoice và sao chép thông tin từ đơn hàng
+        $salesInvoice = new SalesInvoice();
+        $salesInvoice->CusID = $order->CusID;
+        $salesInvoice->MaDonHang = $order->MaDonHang;
+        $salesInvoice->SalName = $CusName;
+        $salesInvoice->Address = $order->ReceivingAddress;
+        $salesInvoice->Phone = $order->ReceivingPhone;
+        $salesInvoice->SalDate = now(); // Đặt ngày bán là ngày hiện tại
+        $salesInvoice->MoneyTotal = $order->MoneyTotal;
+        $salesInvoice->Note = $order->Note;
+        $salesInvoice->save(); // Lưu hóa đơn vào cơ sở dữ liệu
+    
+        // Cập nhật trạng thái của đơn hàng thành "đã xác nhận"
         $order->Status = 1;
         $order->save();
-        
+    
+        // Lấy các mục chi tiết đơn hàng tương ứng với đơn hàng
+        $orderDetails = OrderDetail::where('OrdID', $OrdID)->get();
+    
+        // Tạo các chi tiết hóa đơn bán hàng từ các mục chi tiết đơn hàng và lưu chúng vào cơ sở dữ liệu
+        foreach ($orderDetails as $detail) {
+
+            $salesInvoiceDetailData['SalID']=$salesInvoice->SalID;
+            $salesInvoiceDetailData['ProID']=$detail->ProID;
+            $salesInvoiceDetailData['Quantity']=$detail->Quantity;
+            $salesInvoiceDetailData['Price']=$detail->Price;
+            DB::table('SalesInvoiceDetail')->insert($salesInvoiceDetailData);
+        }
+    
+        // Chuyển hướng người dùng về trang danh sách đơn hàng và hiển thị thông báo thành công
         return redirect()->route('order.index')->with('success', 'Đã xác nhận đơn hàng.');
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -121,9 +143,17 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+
+    //Hủy đơn hàng
+    public function CancelCheckout(Request $request, $OrdID)
     {
-        //
+        $dh = order::find($OrdID);
+        $dh -> Status = 2;
+        $dh -> save();
+       
+        return redirect()->route('order.index')->with('sucess', 'Đơn hàng đã hủy thành công');
     }
 
     /**

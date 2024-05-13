@@ -29,32 +29,45 @@
         <table class="table table-striped table-bordered bootstrap-datatable datatable">
             <tbody>  
                 <tr>
-                    <td>OrdID :</td>      
-                    <td>{{$OrdID }}</td>            
+                    <td>Mã đơn hàng :</td>      
+                    <td>{{$MaDonHang }}</td>            
                 </tr>
                 <tr>
-                    <td>CusID:</td>      
+                    <td>Mã người dùng:</td>      
                     <td>{{$CusID}}</td>            
                 </tr>
                 <tr>
-                    <td>ReceivingName:</td>      
+                    <td>Tên khách hàng:</td>      
                     <td>{{$ReceivingName}}</td>            
                 </tr>
                 <tr>
-                    <td>OrderDate:</td>      
+                    <td>Ngày tạo đơn:</td>      
                     <td>{{$OrderDate}}</td>            
                 </tr>
                 <tr>
-                    <td>Status:</td>      
-                    <td>{{$Status}}</td>            
+                    <td>Trạng thái:</td>      
+                    <td>
+                        @php
+                            if($Status==0){
+                                echo "Chưa xác nhận";
+                            }
+                            else {
+                                echo "Đã xác nhận";
+                            }
+                        @endphp
+                    </td>            
                 </tr>
                 <tr>
-                    <td>ReceivingAddress:</td>      
+                    <td>Địa chỉ:</td>      
                     <td>{{$ReceivingAddress}}</td>            
                 </tr>
                 <tr>
-                    <td>ReceivingPhone:</td>      
+                    <td>Số điện thoại:</td>      
                     <td>{{$ReceivingPhone}}</td>            
+                </tr>
+                <tr>
+                    <td>Email:</td>      
+                    <td>{{$ReceivingEmail}}</td>            
                 </tr>
                 <tr>
                     <td colspan="2" style="padding-left: 100px; color: blue;">Chi tiết các sản phẩm khách mua là:</td>
@@ -62,15 +75,24 @@
                 @php $i = 1; @endphp
                 @foreach($ProIDs as $key => $ProID)
                     <tr>
-                        <td>ProID thứ {{ $i++ }}:</td>      
-                        <td>{{$ProID}}</td>            
+                        <td>Sản phẩm thứ {{ $i++ }}:</td>      
+                        <td>
+                            @php
+                                $product = App\Models\Product::find($ProID);
+                                if($product) {
+                                    echo $product->ProName;
+                                } else {
+                                    echo "Không tìm thấy sản phẩm";
+                                }
+                            @endphp
+                        </td>            
                     </tr>
                     <tr>
-                        <td>Quantity:</td>      
+                        <td>Số lượng:</td>      
                         <td>{{$Quantities[$key]}}</td>            
                     </tr>
                     <tr>
-                        <td>Price:</td>      
+                        <td>Giá:</td>      
                         <td>{{$Prices[$key]}}</td>            
                     </tr>
                 @endforeach        
@@ -79,30 +101,17 @@
                     <td colspan="2"></td>
                 </tr>
                 <tr>
-                    <td>MoneyTotal:</td>      
+                    <td>Tổng tiền:</td>      
                     <td>{{ number_format($MoneyTotal) }}</td>            
                 </tr>
                 <tr>
-                    <td>Note:</td>      
+                    <td>Ghi chú:</td>      
                     <td>{{$Note}}</td>            
                 </tr>
                 <tr>
-                    <td>ReceivingEmail:</td>      
-                    <td>{{$ReceivingEmail}}</td>            
-                </tr>
-                <tr>
-                    <td>Payment:</td>      
+                    <td>Hình thức thanh toán:</td>      
                     <td>{{$Payment}}</td>            
                 </tr>
-                <tr>
-                    <td>created_at:</td>      
-                    <td>{{$created_at}}</td>            
-                </tr>
-                <tr>
-                    <td>updated_at:</td>      
-                    <td>{{$updated_at}}</td>            
-                </tr>
-                
             </tbody>
         </table>           
     </div>

@@ -38,19 +38,19 @@
                         </div>
                         <div class="form-group">
                             <p>Số điện thoại liên hệ:</p>
-                            <input type="text" name="ReceivingPhone" class="input-ten" placeholder="{{$cus->CusPhone}}">
+                            <input type="text" name="ReceivingPhone" class="input-ten" value="{{ old('ReceivingPhone', isset($cus) ? $cus->CusPhone : '') }}">
                         </div>
                         <div class="form-group">
                             <p>Email liên hệ:</p>
-                            <input type="text" name="ReceivingEmail" class="input-ten" placeholder="{{$cus->CusEmail}}">
+                            <input type="text" name="ReceivingEmail" class="input-ten" value="{{ old('ReceivingEmail', isset($cus) ? $cus->CusEmail : '') }}">
                         </div>
                         <div class="form-group">
                             <p>Địa chỉ nhận hàng:</p>
-                            <input type="text" name="ReceivingAddress" class="input-ten"  placeholder="{{$cus->CusAddress}}">
+                            <input type="text" name="ReceivingAddress" class="input-ten"  value="{{ old('ReceivingAddress', isset($cus) ? $cus->CusAddress : '') }}">
                         </div>
                         <div class="form-group-tera">
                             <p>Ghi chú:</p>
-                            <textarea type="text" name="Note" class="textarea-ten" rows="3 " placeholder="...."></textarea>
+                            <textarea type="text" name="Note" class="textarea-ten" rows="3 " placeholder="Nhập ghi chú..."></textarea>
                         </div>
                     @endif
                 @endforeach

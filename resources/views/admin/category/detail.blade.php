@@ -1,7 +1,7 @@
 @extends('admin.layouts.admin')
  
 @section('title')
-    <title>Category Details</title>
+    <title>Chi tiết danh mục</title>
 @endsection
  
 @section('content')
@@ -12,7 +12,7 @@
             <a href="index.html">Home</a> 
             <i class="icon-angle-right"></i>
         </li>
-        <li><a href="#">Category Details</a></li>
+        <li><a href="#">Chi tiết danh mục</a></li>
 </ul>
 
 <div class="row-fluid sortable">
@@ -30,56 +30,20 @@
         
             <tbody>
                 <tr>
-                    <td>CatID:</td>      
+                    <td>Mã danh mục:</td>      
                     <td>{{$CatID}}</td>            
                 </tr>
                 <tr>
-                    <td>CatName:</td>      
+                    <td>Tên danh mục:</td>      
                     <td>{{$CatName}}</td>            
                 </tr>
                 <tr>
-                    <td>MetaTitle:</td>      
+                    <td>Tiêu đề:</td>      
                     <td>{{$MetaTitle}}</td>            
                 </tr>
                 <tr>
-                    <td>Stuffs:</td>      
-                    <td>{{$Stuffs}}</td>            
-                </tr>
-                <tr>
-                    <td>RootID:</td>      
-                    <td>{{$RootID}}</td>            
-                </tr>
-                <tr>
-                    <td>DisplayOrder:</td>      
-                    <td>{{$DisplayOrder}}</td>            
-                </tr>
-                <tr>
-                    <td>created_at:</td>      
-                    <td>{{$created_at}}</td>            
-                </tr>
-                <tr>
-                    <td>CreateBy:</td>      
-                    <td>{{$CreateBy}}</td>            
-                </tr>
-                <tr>
-                    <td>ModifiedDate:</td>      
-                    <td>{{$ModifiedDate}}</td>            
-                </tr>
-                <tr>
-                    <td>MetaDescriptions:</td>      
-                    <td>{{$MetaDescriptions}}</td>            
-                </tr>
-                <tr>
-                    <td>Status:</td>      
+                    <td>Trạng thái:</td>      
                     <td>{{$Status}}</td>            
-                </tr>
-                <tr>
-                    <td>ShowMenu:</td>      
-                    <td>{{$ShowMenu}}</td>            
-                </tr>
-                <tr>
-                    <td>updated_at:</td>      
-                    <td>{{$updated_at}}</td>            
                 </tr>
             </tbody> 
         </table>            

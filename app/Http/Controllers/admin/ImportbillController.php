@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Category;
 
-class CategoryController extends Controller
+use App\Models\Importbill;
+use App\Models\Customer;
+
+class ImportbillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $danhMuc = Category::all();
-        return view('danhmuc', compact('danhMuc'));
+        $salesinvoice = Importbill::all();
+        return view('admin.SalesInvoice.index',compact('salesinvoice'));
     }
 
     /**
@@ -36,18 +37,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $CatID)
+    public function store(Request $request)
     {
-        $danhMuc = Category::all();
-        $product = DB::table('product')->where('Status', '1')->orderby('ProID','desc')->get();
-        $category = DB::table('category')->where('Status', '1')->orderby('CatID','desc')->get();
-        $price = DB::table('price')->select('ProID','Cost')->get();
-        $CatID = DB::table('product')
-            ->join('category', 'product.CatID', '=', 'category.CatID')
-            ->where('product.CatID', $CatID)
-            ->get();
-
-        return view('danhMuc',compact('product','category','CatID','danhMuc','price'));
+        //
     }
 
     /**

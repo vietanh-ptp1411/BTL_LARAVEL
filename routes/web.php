@@ -22,7 +22,7 @@ Route::get('/', function () {
                 ///////////////Trang HOME////////////////////////
 
 
-Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
+Route::controller(App\Http\Controllers\user\HomeController::class)->group(function(){
     Route::get('/home',  'index')->name('home');
     Route::get('/get-more-products', 'getMoreProducts');
     Route::get('/get-more-products2', 'getMoreProducts2');
@@ -32,13 +32,13 @@ Route::controller(App\Http\Controllers\HomeController::class)->group(function(){
 
 
 //Detail
-Route::controller(App\Http\Controllers\detailcontroller::class)->group(function(){
+Route::controller(App\Http\Controllers\user\detailcontroller::class)->group(function(){
     Route::get('/detailt/{ProID}',  'showProduct')->name('detailt');
 });
 
 
 //Login
-Route::controller(App\Http\Controllers\LoginController::class)->group(function(){
+Route::controller(App\Http\Controllers\user\LoginController::class)->group(function(){
     Route::get('/login',  'showLoginForm')->name('login');
     Route::post('/loginsubmit',  'login')->name('login.submit');
     Route::get('/register',  'showRegisterForm')->name('register');
@@ -48,14 +48,14 @@ Route::controller(App\Http\Controllers\LoginController::class)->group(function()
 
 
 //Danh Mục (category)
-Route::controller(App\Http\Controllers\CategoryController::class)->group(function(){
+Route::controller(App\Http\Controllers\user\CategoryController::class)->group(function(){
     Route::get('/danhmuc/{CatID}',  'store')->name('danhmuc');
 });
 
 
 
 //Giỏ hàng
-Route::controller(App\Http\Controllers\CartController::class)->group(function(){
+Route::controller(App\Http\Controllers\user\CartController::class)->group(function(){
     Route::get('/showcart', 'index')->name('giohang');
     Route::post('/save-cart', 'savecart')->name('save-cart');
     Route::post('/update-cart', 'updatecart')->name('update-cart-quatity');
@@ -65,7 +65,7 @@ Route::controller(App\Http\Controllers\CartController::class)->group(function(){
 
 
 //Thanh toán
-Route::controller(App\Http\Controllers\PayController::class)->group(function(){
+Route::controller(App\Http\Controllers\user\PayController::class)->group(function(){
     Route::get('/thanhtoan',  'index')->name('thanhtoan');
     Route::get('/checklogin',  'login_checkout')->name('login_checkout');
     Route::post('/paysubmit',  'pay_submit')->name('pay_submit');
@@ -75,7 +75,7 @@ Route::controller(App\Http\Controllers\PayController::class)->group(function(){
 
 
 //Blog
-Route::controller(App\Http\Controllers\BlogController::class)->group(function(){
+Route::controller(App\Http\Controllers\user\BlogController::class)->group(function(){
     Route::get('/blog',  'index')->name('blog');
     Route::get('/blogdetail/{BlogID}',  'blogdetail')->name('blogdetail');
     Route::get('/blogde',  'blogde')->name('blogde');
@@ -103,6 +103,7 @@ Route::get('/admin', function () {
 
 
 
+//Danh mục
 Route::controller(App\Http\Controllers\admin\CategoryController::class)->group(function(){
     Route::get('/indexCategory','index')->name('categories.index');
     Route::get('/createCategory','create')->name('categories.create');
@@ -115,6 +116,8 @@ Route::controller(App\Http\Controllers\admin\CategoryController::class)->group(f
 
 
 
+
+//Sản phẩm
 Route::controller(App\Http\Controllers\admin\ProductController::class)->group(function(){
     Route::get('/indexProduct', 'index')->name('product.index');
     Route::get('/createProduct',  'create')->name('product.create');
@@ -126,13 +129,30 @@ Route::controller(App\Http\Controllers\admin\ProductController::class)->group(fu
 });
 
 
+
+//Đơn hàng
 Route::controller(App\Http\Controllers\admin\OrderController::class)->group(function(){
     Route::get('/indexOrder', 'index')->name('order.index');
     Route::get('/showOrder/{OrdID}',  'show')->name('order.detail');
     Route::get('/destroyOrder/{OrdID}',  'destroy')->name('order.destroy');
     Route::get('/confirmOrder/{OrdID}',  'confirm')->name('order.confirm'); 
+    Route::get('/CancelCheckout/{OrdID}', 'CancelCheckout') -> name('order.CancelCheckout') ; 
 });
 
+
+
+//Hóa đơn bán
+Route::controller(App\Http\Controllers\admin\SalesInvoiceController::class)->group(function(){
+    Route::get('/indexSalesInvoice', 'index')->name('SalesInvoice.index');
+    Route::get('/showSale/{SalID}',  'show')->name('SalesInvoice.detail');
+    Route::get('/destroySale/{SalID}', 'destroy')->name('SalesInvoice.destroy');
+    Route::get('/admin/danhsachsanpham/pdf', 'Xuatpdf')->name('danhsachsanpham.pdf');
+
+});
+
+
+
+//Hóa đơn nhập
 Route::controller(App\Http\Controllers\admin\SalesInvoiceController::class)->group(function(){
     Route::get('/indexSalesInvoice', 'index')->name('SalesInvoice.index');
 });

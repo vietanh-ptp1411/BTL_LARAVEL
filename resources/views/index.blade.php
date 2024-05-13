@@ -74,7 +74,7 @@
                                             <div class="product-price" style="text-align: center;">{{number_format($p->Cost)}} đ</div>
                                         @endif
                                     @endforeach
-                                </div>
+                                </div>  
                             </div>
                         </li>
                         @endforeach

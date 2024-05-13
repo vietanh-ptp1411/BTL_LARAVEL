@@ -16,8 +16,6 @@ class OrderDetail extends Model
         'ProID',
         'Quantity',
         'Price',
-        'created_at',
-        'updated_at'
     ];
 }
 

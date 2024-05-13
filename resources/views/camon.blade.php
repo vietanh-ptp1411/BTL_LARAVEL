@@ -37,7 +37,7 @@
                         </p>
                         <p>Mã đơn hàng của bạn là&nbsp;
                             <strong>
-                                <strong style="color: #ffb0bd;">248473837</strong>
+                                <strong style="color: #ffb0bd;">{{ Session::get('MaDonHang') }}</strong>
                             </strong>
                         </p>
                         <p>Bộ phận CSKH sẽ gọi điện xác nhận đơn hàng và hướng dẫn thanh toán</p>
@@ -46,7 +46,7 @@
                         <p>Cảm ơn bạn đã&nbsp;đồng hành cùng BaloOnline.</p>
                     </div>
                 </div>
-                <a href="/danhmucsp/danhmuc.html" class="camon-back" title="Quay lại trang sản phẩm">
+                <a href="{{route('home')}}" class="camon-back" title="Quay lại trang sản phẩm">
                     <strong>Quay lại trang sản phẩm</strong>
                 </a>
             </div>

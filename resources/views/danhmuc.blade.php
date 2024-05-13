@@ -25,65 +25,13 @@
 <main class="main1">
     <div class="contz">
         <div class="contz1">
-            <div class="danhmuc">
-                <div class="danhmuc1">
-                    <div class="tdmsp">
-                        <h3 style="font-size: 20px;margin: 0;font-family: 'Nunito-Bold';">Danh mục sản phẩm</h3>
-                        <i class="fa fa-plus" style="font-size: 16px;padding-top: 5px;"></i>
-                    </div>
-                    <ul class="dmch">
-                        <li><a href="">Hàng mới</a></li>
-                        <li><a href="">Set quà</a></li>
-                        <li><a href="">Gấu bông & gối</a></li>
-                        <li><a href="">Balo & Túi ví</a></li>
-                        <li><a href="">Văn phòng phẩm</a></li>
-                        <li><a href="">Điện tử Điện thoại</a></li>
-                        <li><a href="">Phụ kiện Thời trang</a></li>
-                        <li><a href="">Gia dụng</a></li>
-                        <li><a href="">Trang điểm</a></li>
-                        <li><a href="">Đồ chơi</a></li>
-                        <li><a href="">Trang trí</a></li>
-                    </ul>
-                </div>
-                <div class="giadd">
-                    <div class="gia">
-                        <h3>Giá</h3>  
-                    </div>
-                    <div class="thanhgia">
-                        <p>
-                            <label for="amount" style="font-size: 16px;font-family: 'Nunito-Regular';">Từ</label>
-                            <input type="text" id="amount" readonly style="border:0; color:#000;font-size: 16px;font-family: 'Nunito-Regular';">
-                        </p>
-                        <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                            <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div>
-                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span>
-                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;"></span>
-                        </div>
-                    </div>
-                    <script>
-                        $( function() {
-                          $( "#slider-range" ).slider({
-                            range: true,
-                            min: 0,
-                            max: 500000,
-                            values: [ 0, 500000 ],
-                            slide: function( event, ui ) {
-                              $( "#amount" ).val( ui.values[ 0 ]+"đ" + " : " + ui.values[ 1 ] +"đ   " );
-                            }
-                          });
-                          $( "#amount" ).val( + $( "#slider-range" ).slider( "values", 0 ) +"đ" +
-                            " : " + $( "#slider-range" ).slider( "values", 1 ) +"đ" );
-                        } );
-                        </script>
-                </div>
-            </div>
 
             <div class="sanpham">
                     <div class="tsp">
                         <h1>
                             <ul class="setqua">
-                                <li><a href="">Set quà</a></li>
-                                <li><a href="">Set quà yêu thương</a></li>
+                                <li><a href="">Danh mục</a></li>
+                                <li><a href="">{{$catName}}</a></li>
                             </ul>
                         </h1>  
                         <select name="" id="" class="moinhat">
@@ -94,19 +42,19 @@
                     </div>
                     <div id="wrapper">
                         <ul class="product">
-                            @foreach($CatID as $product)
+                            @foreach($categorysp as $catsp)
                                 <li>
                                     <div class="product-item">
                                         <div class="product-top">
-                                            <a href="{{ route('detailt', ['ProID' => $product->ProID]) }}" class="product-thumb">
-                                                <img src="/DoAn3_IMG/{{$product->ProImage}}" alt="">  
+                                            <a href="{{ route('detailt', ['ProID' => $catsp->ProID]) }}" class="product-thumb">
+                                                <img src="/DoAn3_IMG/{{$catsp->ProImage}}" alt="">  
                                             </a>
                                             <a href="" class="buy-now">Mua ngay</a>
                                         </div>
                                         <div class="product-info">
-                                            <a href="{{ route('detailt', ['ProID' => $product->ProID]) }}" class="product-name" title="{{$product->ProName}}">{{$product->ProName}}</a>
+                                            <a href="{{ route('detailt', ['ProID' => $catsp->ProID]) }}" class="product-name" title="{{$catsp->ProName}}">{{$catsp->ProName}}</a>
                                             @foreach($price as $p)
-                                                @if($p->ProID == $product->ProID)
+                                                @if($p->ProID == $catsp->ProID)
                                                     <div class="product-price" style="text-align: center;"><?=number_format($p->Cost)?> đ</div>
                                                 @endif
                                             @endforeach

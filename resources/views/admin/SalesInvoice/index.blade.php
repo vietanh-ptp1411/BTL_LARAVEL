@@ -39,8 +39,7 @@
 							<th style="text-align: center;">STT</th>
 							<th style="text-align: center;">Tên khách hàng</th>
 							<th style="text-align: center;">Tổng tiền</th>
-							<th style="text-align: center;">Phương thức thanh toán</th>
-							<th style="text-align: center;">Trạng thái</th>
+							<th style="text-align: center;">Ngày tạo</th>
 							<th style="text-align: center;">Chi tiết</th>
 							<th style="text-align: center;">Xóa đơn hàng</th>
 							<th style="text-align: center;">Xuất hóa đơn bán</th>
@@ -51,17 +50,12 @@
 						@foreach($salesinvoice as $sal)
 						<tr>
 							<td style="text-align: center;">{{ $i++ }}</td>
-                            @foreach($customer as $cus)
-                                @if($cus->CusID == $sal->CusID)
-                                    <td style="text-align: left;  padding-left: 60px;">{{$cus->CusName}}</td>
-                                @endif
-                            @endforeach
+                            <td style="text-align: left;  padding-left: 60px;">{{$sal->SalName}}</td>
 							<td style="text-align: center;">{{ number_format($sal->MoneyTotal) }}đ</td>
-							<td style="text-align: center;">{{ $sal->Payment }}</td>
-							<td style="text-align: center;"><input type="checkbox" {{ $sal->Status ? 'checked' : '' }}></td>
-							<td style="text-align: center;"><a href="" class="btn btn-primary">Detail</a></td>
-							<td style="text-align: center;"><a onclick="return confirm('Bạn có muốn hủy đơn hàng này không')" href="" class="btn btn-danger">Destroy</a></td>
-							<td style="text-align: center;"><a href="" class="btn btn-warning">Confirm</a></td>	
+							<td style="text-align: center;">{{ $sal->SalDate }}</td>
+							<td style="text-align: center;"><a href="{{route('SalesInvoice.detail',$sal->SalID)}}" class="btn btn-primary">Detail</a></td>
+							<td style="text-align: center;"><a onclick="return confirm('Bạn có muốn xóa hóa đơn này không')" href="{{route('SalesInvoice.destroy',$sal->SalID)}}" class="btn btn-danger">Destroy</a></td>
+							<td style="text-align: center;"><a href="" class="btn btn-warning">In</a></td>	
 						</tr>
 						@endforeach
 					</tbody>

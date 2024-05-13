@@ -33,52 +33,21 @@
             <tbody>
                 
                 <tr>
-                    <td>CatName</td>
+                    <td>Tên danh mục</td>
                     <td><input type="text" name="CatName" id="CatName" ></td>                  
                 </tr>
                 <tr>
-                    <td>MetaTitle</td>
+                    <td>Tiêu đề</td>
                     <td><input type="text" name="MetaTitle" id="MetaTitle"></td>                  
                 </tr>
                 <tr>
-                    <td>Stuffs</td>
-                    <td><input type="text" name="Stuffs" id="Stuffs"></td>                  
-                </tr>
-                <tr>
-                    <td>RootID</td>
-                    <td><input type="text" name="RootID" id="RootID"></td>                  
-                </tr>
-                <tr>
-                    <td>DisplayOrder</td>
-                    <td><input type="text" name="DisplayOrder" id="DisplayOrder"></td>                  
-                </tr>
-                <tr>
-                    <td>CreateBy</td>
+                    <td>Người tạo</td>
                     <td><input type="text" name="CreateBy" id="CreateBy"></td>                  
                 </tr>
                 <tr>
-                    <td>ModifiedDate</td>
-                    <td><input type="text" name="ModifiedDate" id="ModifiedDate"></td>                  
-                </tr>
-                <tr>
-                    <td>Status</td>
+                    <td>Trạng thái</td>
                     <td><input type="text" name="Status" id="Status"></td>                  
-                </tr>
-                <tr>
-                    <td>ShowMenu</td>
-                    <td><input type="text" name="ShowMenu" id="ShowMenu"></td>                  
-                </tr> 
-                <tr>
-                    <td>MetaDescriptions</td>
-                    <td>
-                        <div class="control-group hidden-phone">
-                            <label class="control-label" for="textarea2"></label>
-                            <div class="controls">
-                                <textarea class="cleditor" id="textarea2" rows="3" ></textarea>
-                            </div>
-                        </div>
-                    </td>
-                </tr>             
+                </tr>       
             </tbody> 
         </table> 
         <div class="form-actions">

@@ -37,13 +37,13 @@
 					<thead>
 						<tr>
 							<th style="text-align: center;">STT</th>
-							<th style="text-align: center;">Tên khách hàng</th>
-							<th style="text-align: center;">Tổng tiền</th>
-							<th style="text-align: center;">Phương thức thanh toán</th>
-							<th style="text-align: center;">Trạng thái</th>
-							<th style="text-align: center;">Chi tiết</th>
-							<th style="text-align: center;">Xóa đơn hàng</th>
-							<th style="text-align: center;">Xác nhận đơn hàng</th>
+							<th style="text-align: center;">Mã đơn hàng</th>
+							<th style="text-align: center;">Tên khách hàng</th>	
+							<th style="text-align: center;">Số điện thoại</th>	
+							<th style="text-align: center;">Thành tiền</th>							
+							<th style="text-align: center;">Ngày đặt hàng</th>	
+							<th style="text-align: center;">Trạng thái</th>						
+							<th style="text-align: center;">Chức năng</th>
 						</tr>
 					</thead>   
 					<tbody>
@@ -51,13 +51,26 @@
 						@foreach($order as $od)
 						<tr>
 							<td style="text-align: center;">{{ $i++ }}</td>
-							<td style="text-align: left;  padding-left: 60px;">{{ $od->ReceivingName }}</td>
+							<td style="text-align: left;">{{$od->MaDonHang }}</td>
+							<td style="text-align: left;">{{ $od->ReceivingName }}</td>
+							<td style="text-align: center;">{{$od->ReceivingPhone}}</td>
 							<td style="text-align: center;">{{ number_format($od->MoneyTotal) }}đ</td>
-							<td style="text-align: center;">{{ $od->Payment }}</td>
-							<td style="text-align: center;"><input type="checkbox" {{ $od->Status ? 'checked' : '' }}></td>
-							<td style="text-align: center;"><a href="{{route('order.detail',$od->OrdID)}}" class="btn btn-primary">Detail</a></td>
-							<td style="text-align: center;"><a onclick="return confirm('Bạn có muốn hủy đơn hàng này không')" href="{{ route('order.destroy',$od->OrdID) }}" class="btn btn-danger">Destroy</a></td>
-							<td style="text-align: center;"><a href="{{ route('order.confirm', $od->OrdID) }}" class="btn btn-warning">Confirm</a></td>	
+							<td style="text-align: center;">{{ $od->OrderDate }}</td>
+							<td style="text-align: center;">
+								@if($od->Status == 1)
+									<span style="margin-top: 8PX" class="badge badge-success">Đã xác nhận</span>
+								@elseif($od->Status == 2)
+									<span style="margin-top: 8PX" class="badge badge-danger">Đơn đã hủy</span>
+								@else
+									<span style="margin-top: 8PX" class="badge badge-warning">Chờ xác nhận</span>
+								@endif
+							</td>
+							<td style="text-align: center;">
+								<a href="{{route('order.detail',$od->OrdID)}}" class="btn btn-primary">Chi tiết</a>
+								<a onclick="return confirm('Bạn có muốn hủy đơn hàng này không')" href="{{ route('order.CancelCheckout',$od->OrdID) }}" class="btn btn-danger">Hủy đơn</a>
+								<a onclick="return confirm('Bạn có chắc chắn xác nhận đơn hàng này không')" href="{{ route('order.confirm', $od->OrdID) }}" class="btn btn-warning">Xác nhận</a>
+							</td>
+							
 						</tr>
 						@endforeach
 					</tbody>

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\product;
 use Illuminate\Support\Facades\DB;
@@ -50,13 +51,13 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $danhMuc = Category::all();
-        $product = DB::table('product')->select('ProID','ProName','ProImage')->get();
+        // Lấy tất cả sản phẩm có status =1 ra và sắp xếp tăng dần
+        $product = DB::table('product')->where('Status', '1')->orderby('ProID','asc')->get();
         $menu = DB::table('menu')->select('ID', 'Text')->whereNull('parentID')->get();
         $price = DB::table('price')->select('ProID','Cost')->get();
         $category = DB::table('category')->select('CatName','CatIMG')->whereNull('MetaTitle')->get();
         
-
-
+        //tìm từ khóa theo tên sản phẩm
         $keywords = $request->keywordsubmit;
         $search_product = DB::table('product')->where('ProName' , 'like', '%' .$keywords.  '%')->get();
 

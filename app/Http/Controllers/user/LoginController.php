@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -28,6 +28,7 @@ class LoginController extends Controller
         
         if($result){
             Session::put('CusID',$result->CusID);
+            Session::put('CusName',$result->CusName);
             return Redirect::to('home');
         }
         else{

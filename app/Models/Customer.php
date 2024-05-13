@@ -26,4 +26,8 @@ class Customer extends Model
     {
         return $this->hasOne(SalesInvoice::class, 'CusID', 'CusID');
     }
+    public function order()
+    {
+        return $this->hasOne(order::class, 'CusID', 'CusID');
+    }
 }

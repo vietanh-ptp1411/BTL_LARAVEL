@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -48,6 +50,12 @@ class PayController extends Controller
         $data = array();
 
         $data['CusID'] = Session::get('CusID');
+
+        // Tạo mã đơn hàng từ chữ cái ngẫu nhiên kết hợp với ngày tháng đặt hàng
+        $randomString = Str::random(6); // Tạo chuỗi ngẫu nhiên gồm 6 ký tự
+        $orderCode = $randomString . '_' . date("YmdHis"); // Kết hợp với ngày tháng đặt hàng
+        $data['MaDonHang'] = $orderCode;
+
         $data['ReceivingName'] = $request->input('ReceivingName');
         $data['ReceivingPhone'] = $request->input('ReceivingPhone');
         $data['ReceivingEmail'] = $request->input('ReceivingEmail');
@@ -69,8 +77,10 @@ class PayController extends Controller
         $data['created_at'] = date("Y-m-d H:i:s");
 
         $OrdID = DB::table('order')->insertGetId($data);
+
         // // Lưu các giá trị vào phiên
         // Session::put('OrdID', $OrdtID);
+        Session::put('MaDonHang', $orderCode); //để chuyền sang trang cảm ơn
 
 
         $content = Cart::content();
@@ -81,8 +91,6 @@ class PayController extends Controller
             $orderdetailData['ProID']=$value->id;
             $orderdetailData['Quantity']=$value->qty;
             $orderdetailData['Price']=$value->price;
-            $orderdetailData['updated_at'] = date("Y-m-d H:i:s");
-            $orderdetailData['created_at'] = date("Y-m-d H:i:s");
             DB::table('orderdetail')->insert($orderdetailData);
         }
 

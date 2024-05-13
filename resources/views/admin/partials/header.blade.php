@@ -269,7 +269,19 @@
  									<span>Account Settings</span>
 								</li>
 								<li><a href="/#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="/login.html"><i class="halflings-icon off"></i> Logout</a></li>
+								<?php
+									$customerID= Session::get('CusID');
+									if($customerID != NULL){
+								?>
+									<li style="margin-right: 10px"></li>
+									<li><a href="{{route('logout')}}"><i class="halflings-icon off"></i> Đăng xuất</a></li>
+								<?php
+								}else {
+									?>
+									<li><a href="{{route('login')}}"><i class="halflings-icon off"></i> Đăng nhập</a></li>
+									<?php
+								}
+								?>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
