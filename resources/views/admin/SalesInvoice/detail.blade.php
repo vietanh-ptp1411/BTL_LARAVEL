@@ -57,8 +57,7 @@
                     <tr>
                         <td colspan="2" style="padding-left: 100px; color: blue;">Chi tiết các sản phẩm khách mua là:</td>
                     </tr>
-                    @php $i = 1; @endphp
-                    @foreach($ProIDs as $key => $ProID)
+                    
                     <table class="table table-striped table-bordered bootstrap-datatable datatable">
                         <thead>
                             <tr style="border-bottom: 1px solid #a2a2a2;">
@@ -70,36 +69,39 @@
                                 <th style="width: 15%;text-align: center;">Thành tiền</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td style="text-align: center;">{{ $i++ }}</td>      
-                                <td style="text-align: center;">
-                                    @php
-                                        $product = App\Models\Product::find($ProID);
-                                        if($product) {
-                                            echo $product->ProName;
-                                        } else {
-                                            echo "Không tìm thấy sản phẩm";
-                                        }
-                                    @endphp
-                                </td>          
-                                <td style="text-align: center;">
-                                    @php
-                                        $product = App\Models\Product::find($ProID);
-                                        if($product) {
-                                            echo '<img src="/DoAn3_IMG/' . $product->ProImage . '" style="width:100px" >';
-                                        } else {
-                                            echo "Không tìm thấy sản phẩm";
-                                        }
-                                    @endphp
-                                </td>    
-                                <td style="text-align: center;">{{$Quantities[$key]}}</td>        
-                                <td style="text-align: center;">{{$Prices[$key]}} đ</td>            
-                                <td style="text-align: center;">{{ $Quantities[$key] * $Prices[$key] }} đ</td>            
-                            </td>
-                        </tbody>   
+                        @php $i = 1; @endphp
+                        @foreach($ProIDs as $key => $ProID)
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">{{ $i++ }}</td>      
+                                    <td style="text-align: center;">
+                                        @php
+                                            $product = App\Models\Product::find($ProID);
+                                            if($product) {
+                                                echo $product->ProName;
+                                            } else {
+                                                echo "Không tìm thấy sản phẩm";
+                                            }
+                                        @endphp
+                                    </td>          
+                                    <td style="text-align: center;">
+                                        @php
+                                            $product = App\Models\Product::find($ProID);
+                                            if($product) {
+                                                echo '<img src="/DoAn3_IMG/' . $product->ProImage . '" style="width:100px" >';
+                                            } else {
+                                                echo "Không tìm thấy sản phẩm";
+                                            }
+                                        @endphp
+                                    </td>    
+                                    <td style="text-align: center;">{{$Quantities[$key]}}</td>        
+                                    <td style="text-align: center;">{{number_format($Prices[$key])}}đ</td>            
+                                    <td style="text-align: center;">{{number_format($Quantities[$key] * $Prices[$key]) }} đ</td>            
+                                </td>
+                            </tbody>   
+                        @endforeach  
                     </table>    
-                    @endforeach       
+                         
                     </tr>
                     
                     <div style="display: flex">
@@ -107,7 +109,7 @@
                         <p>{{ number_format($MoneyTotal) }} đ</p>            
                     </div>
                     <div>
-                        <button href="{{ route('danhsachsanpham.pdf') }}" class="btn btn-primary" name="">In hóa đơn</button>  
+                        <a href="{{ route('printInvoices',['SalID' => $sale->SalID])}}" class="btn btn-primary" name="">In hóa đơn</a>
                     </div>
                 </tbody>
             </table>           

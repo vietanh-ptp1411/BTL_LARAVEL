@@ -94,7 +94,6 @@ Route::controller(App\Http\Controllers\user\BlogController::class)->group(functi
 
 
 
-
             ////////////////////////ADMIN//////////////////////////////////
 
 Route::get('/admin', function () {
@@ -146,8 +145,8 @@ Route::controller(App\Http\Controllers\admin\SalesInvoiceController::class)->gro
     Route::get('/indexSalesInvoice', 'index')->name('SalesInvoice.index');
     Route::get('/showSale/{SalID}',  'show')->name('SalesInvoice.detail');
     Route::get('/destroySale/{SalID}', 'destroy')->name('SalesInvoice.destroy');
-    Route::get('/admin/danhsachsanpham/pdf', 'Xuatpdf')->name('danhsachsanpham.pdf');
-
+    // Route::get('/printInvoice/{SalName}', 'printInvoice')->name('printInvoice');
+    Route::get('/printInvoice/{SalID}', 'printInvoices')->name('printInvoices');
 });
 
 
@@ -155,4 +154,28 @@ Route::controller(App\Http\Controllers\admin\SalesInvoiceController::class)->gro
 //Hóa đơn nhập
 Route::controller(App\Http\Controllers\admin\SalesInvoiceController::class)->group(function(){
     Route::get('/indexSalesInvoice', 'index')->name('SalesInvoice.index');
+});
+
+//Phân quyền đăng nhập
+Route::controller(App\Http\Controllers\admin\UserController::class)->group(function(){
+    Route::get('/user', 'index')->name('user');
+});
+
+Route::controller(App\Http\Controllers\Admin\AuthController::class)->group(function(){
+    Route::get('/index_auth',  'index')->name('index');
+    Route::get('/register_auth',  'register_auth')->name('register_auth');
+    Route::get('/login_auth',  'login_auth')->name('login_auth');
+    Route::get('/logout_auth',  'logout_auth')->name('logout_auth');
+    Route::post('/register',  'register')->name('register');
+    Route::post('/loginAdmin',  'loginAuth')->name('loginAdmin');
+});
+
+Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function(){
+    Route::get('/indexUsers',  'index')->name('indexUsers');
+    Route::post('/assign_roles',  'assign_roles')->name('assign_roles');
+    Route::get('/delete-user-roles/{id}',  'delete_user_roles')->name('delete-user-roles');
+    Route::get('/impersonate/{id}',  'impersonate')->name('impersonate');
+    Route::get('/impersonate-destroy',  'impersonate_destroy')->name('impersonate-destroy');
+    Route::post('/storeAcc','store')->name('storeAcc');
+    Route::get('/addAcc', 'create')->name('addAcc');
 });

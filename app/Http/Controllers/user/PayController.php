@@ -71,7 +71,7 @@ class PayController extends Controller
             $data['Status'] = '0';
         }
         $data['Note'] = $request->input('Note');
-        $data['MoneyTotal'] = $request->input('MoneyTotal');
+        $data['MoneyTotal'] = str_replace('.', '', $request->input('MoneyTotal'));
         $data['OrderDate'] = date("Y-m-d H:i:s");
         $data['updated_at'] = date("Y-m-d H:i:s");
         $data['created_at'] = date("Y-m-d H:i:s");

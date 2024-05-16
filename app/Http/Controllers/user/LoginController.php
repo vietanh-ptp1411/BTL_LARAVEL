@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -20,21 +21,32 @@ class LoginController extends Controller
         $danhMuc = Category::all();
         return view('login',compact('danhMuc'));
     }
+
+
     public function login(Request $request)
     {
         $username = $request->username;
         $password = $request->password;
-        $result = DB::table('customer')->where('UserName',$username)->where('Password',$password)->first();
+
+        $customer = DB::table('customer')->where('UserName', $username)->first();
+        $admin = DB::table('admin')->where('email', $username)->first();
         
-        if($result){
-            Session::put('CusID',$result->CusID);
-            Session::put('CusName',$result->CusName);
-            return Redirect::to('home');
+        if($customer && Hash::check($password, $customer->Password)){
+            Session::put('CusID', $customer->CusID);
+            Session::put('CusName', $customer->CusName);
+            return redirect('home');
+        }
+        elseif($admin && Hash::check($password, $admin->password)){
+            Session::put('id', $admin->id);
+            Session::put('name', $admin->name);
+            return redirect('/admin');
         }
         else{
-            return Redirect::to('login')->with('error', 'Tài khoản hoặc mật khẩu không chính xác.');
+            return redirect('login')->with('error', 'Tài khoản hoặc mật khẩu không chính xác.');
         }
     }
+
+
     public function showRegisterForm()
     {
         $danhMuc = Category::all();
@@ -42,28 +54,29 @@ class LoginController extends Controller
     }
     public function register(Request $request)
     {
-        $data = array();
-
-        $data['UserName'] = $request->input('UserName');
-        $data['CusName'] = $request->input('CusName');
-        // Xử lý định dạng ngày tháng
         $brithday = Carbon::createFromFormat('Y-m-d', $request->input('Brithday'))->toDateString();
-        $data['Brithday'] = $brithday;
-        $data['CusPhone'] = $request->input('CusPhone');
-        $data['CusEmail'] = $request->input('CusEmail');
-        $data['CusAddress'] = $request->input('CusAddress');
-        $data['Password'] = $request->input('Password');
-        $data['updated_at'] = date("Y-m-d H:i:s");
-        $data['created_at'] = date("Y-m-d H:i:s");
-        
 
-        $customerID = DB::table('customer')->insertGetId($data);
+        $data = 
+        [
+            'UserName' => $request->input('UserName'),
+            'CusName' => $request->input('CusName'),
+            'Brithday' => $brithday,
+            'CusPhone' => $request->input('CusPhone'),
+            'CusEmail' => $request->input('CusEmail'),
+            'CusAddress' => $request->input('CusAddress'),
+            'Password' => Hash::make($request->input('Password')), // Sử dụng bcrypt để mã hóa mật khẩu
+            'updated_at' => date("Y-m-d H:i:s"),
+            'created_at' => date("Y-m-d H:i:s"),
+        ];
+
+        
+        DB::table('customer')->insertGetId($data);
 
         // Lưu các giá trị vào phiên
-        Session::put('CusID', $customerID);
-        Session::put('CusName', $request->input('CusName'));
+        // Session::put('CusID', $customerID);
+        // Session::put('CusName', $request->input('CusName'));
 
-        return Redirect('/thanhtoan');
+        return Redirect('/register')->with('success', 'Đã đăng ký thành công tài khoản.');
     }
 
     public function logout()
@@ -71,6 +84,4 @@ class LoginController extends Controller
         Session::flush();
         return Redirect('login');
     }  
-
-
 }

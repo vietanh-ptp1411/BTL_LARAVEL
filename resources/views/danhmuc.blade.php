@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style1.css') }}"> 
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/danhmuc.css') }}"> 
     <title>Danh mục sản phẩm</title>
     <!-- <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css" /> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous"/>
@@ -53,11 +53,7 @@
                                         </div>
                                         <div class="product-info">
                                             <a href="{{ route('detailt', ['ProID' => $catsp->ProID]) }}" class="product-name" title="{{$catsp->ProName}}">{{$catsp->ProName}}</a>
-                                            @foreach($price as $p)
-                                                @if($p->ProID == $catsp->ProID)
-                                                    <div class="product-price" style="text-align: center;"><?=number_format($p->Cost)?> đ</div>
-                                                @endif
-                                            @endforeach
+                                            <div class="product-price" style="text-align: center;">{{number_format($catsp->price)}} đ</div>
                                         </div>
                                     </div>
                                 </li>

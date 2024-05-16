@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Customer;
 use App\Models\OrderDetail;
+use App\Models\Product;
 use App\Models\SalesInvoice;
 use App\Models\SalesInvoiceDetail;
 use Illuminate\Support\Facades\DB;
@@ -122,10 +123,21 @@ class OrderController extends Controller
     
         // Lấy các mục chi tiết đơn hàng tương ứng với đơn hàng
         $orderDetails = OrderDetail::where('OrdID', $OrdID)->get();
+
+
+        
     
         // Tạo các chi tiết hóa đơn bán hàng từ các mục chi tiết đơn hàng và lưu chúng vào cơ sở dữ liệu
         foreach ($orderDetails as $detail) {
-
+            $product = Product::find($detail->ProID);
+            if ($product) {
+                $product->SoLuong -= $detail->Quantity;
+                $product->DaBan += $detail->Quantity;
+                $product->save();
+            } else {
+                // Xử lý khi sản phẩm không tồn tại
+                // Ví dụ: Bạn có thể ghi log hoặc thực hiện hành động phù hợp khác
+            }
             $salesInvoiceDetailData['SalID']=$salesInvoice->SalID;
             $salesInvoiceDetailData['ProID']=$detail->ProID;
             $salesInvoiceDetailData['Quantity']=$detail->Quantity;

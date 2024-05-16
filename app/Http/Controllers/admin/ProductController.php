@@ -37,50 +37,24 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // $sp = new Product();
-        // $sp->ProID = $request->input('ProID');
-        // $sp->CatID = $request->input('CatID');
-        // $sp->Metatitle = $request->input('Metatitle');
-        // $sp->ProName = $request->input('ProName');
-        // $sp->ProDescription = $request->input('ProDescription');
-        // $sp->ProColor = $request->input('ProColor');
-        // $sp->Materials = $request->input('Materials');
-        // $sp->Size = $request->input('Size');
-        // $sp->ProImage = $request->input('ProImage');
-        // $sp->Tags = $request->input('Tags');
-        // $sp->MoreImage = $request->input('MoreImage');
-        // $sp->created_at = $request->input('created_at');
-        // $sp->CreateBy = $request->input('CreateBy');
-        // $sp->MetaDescriptions = $request->input('MetaDescriptions');
-        // $sp->Displayhome = $request->input('Displayhome');
-        // $sp->Status = $request->input('Status');
-        // $sp->inventory = $request->input('inventory');
-        // $sp->sold = $request->input('sold');
-        // $sp->updated_at = $request->input('updated_at');
-
-        // $sp->save();
-        
-        // return redirect()->route('product.index')->with('success','Thêm thành công danh mục!');
         $data = [
-             
              // $sp->ProID = $request->input('ProID');
             'CatID' => $request->input('CatID'),
-            'Metatitle' => $request->input('Metatitle'),
             'ProName' => $request->input('ProName'),
+            'price' => $request->input('price'),
             'ProDescription' => $request->input('ProDescription'),
-            'ProColor' => $request->input('ProColor'),
             'Materials' => $request->input('Materials'),
             'Size' => $request->input('Size'),
             'ProImage' => $request->input('ProImage'),
-            'Tags' => $request->input('Tags'),
-            'MoreImage' => $request->input('MoreImage'),
+            'MoreImage1' => $request->input('MoreImage1'),
+            'MoreImage2' => $request->input('MoreImage2'),
+            'MoreImage3' => $request->input('MoreImage3'),
             'created_at' => date("Y-m-d H:i:s"),
             'CreateBy' => $request->input('CreateBy'),
-            'MetaDescriptions' => $request->input('MetaDescriptions'),
             'Displayhome' => $request->input('Displayhome'),
             'Status' => $request->input('Status')?1:0,
-            'inventory' => $request->input('inventory'),
-            'sold' => $request->input('sold'),
+            'SoLuong' => $request->input('SoLuong'),
+            'DaBan' => $request->input('DaBan'),
             'updated_at' => date("Y-m-d H:i:s"),
         ];
         Product::create($data);
@@ -104,26 +78,23 @@ class ProductController extends Controller
             return abort(404); // Trả về trang lỗi 404
         }
         $CatID = $product->CatID;
-        $Metatitle = $product->Metatitle;
         $ProName = $product->ProName;
+        $price = $product->price;
         $ProDescription = $product->ProDescription;
-        $ProColor = $product->ProColor;
         $Materials = $product->Materials;
         $Size = $product->Size;
         $ProImage = $product->ProImage;
-        $Tags = $product->Tags;
-        $MoreImage = $product->MoreImage;
+        $MoreImage1 = $product->MoreImage1;
+        $MoreImage2 = $product->MoreImage2;
+        $MoreImage3 = $product->MoreImage3;
         $created_at = $product->created_at;
         $CreateBy = $product->CreateBy;
-        $MetaDescriptions = $product->MetaDescriptions;
         $Displayhome = $product->Displayhome;
         $Status = $product->Status;
-        $inventory = $product->inventory;
-        $sold = $product->sold;
+        $SoLuong = $product->SoLuong;
+        $DaBan = $product->DaBan;
         $updated_at = $product->updated_at;
-        $imagemore = explode(',', $product->MoreImage);
-
-        return view('admin.product.detail', compact('product','imagemore','ProID','CatID','Metatitle','ProName','ProDescription','ProColor','Materials','Size','ProImage','Tags','MoreImage','created_at','CreateBy','MetaDescriptions','Displayhome','Status','inventory','sold','updated_at'));
+        return view('admin.product.detail', compact('product','ProID','CatID','ProName','price','ProDescription','Materials','Size','ProImage','MoreImage1','MoreImage2','MoreImage3','created_at','CreateBy','Displayhome','Status','SoLuong','DaBan','updated_at'));
     
     }
 
@@ -165,6 +136,7 @@ class ProductController extends Controller
         $product->CatID = $request->CatID;
         $product->Metatitle = $request->Metatitle;
         $product->ProName = $request->ProName;
+        $product->price = $request->price;
         $product->ProDescription = $request->ProDescription;
         $product->ProColor = $request->ProColor;
         $product->Materials = $request->Materials;

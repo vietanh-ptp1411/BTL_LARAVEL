@@ -20,8 +20,14 @@
 
 <div class="user-wrapper">
     <div class="user-nav anonymous-awe">
+        <a href="{{route('login')}}" class="active1" rel="nofollow">Đăng nhập</a>
         <a href="{{route('register')}}" class="active" rel="nofollow">Đăng ký</a>
     </div>
+    @if (session('success'))
+        <div id="success-alert" style="text-align: center;color:red;margin-top:10px">
+            {{ session('success') }}
+        </div>
+    @endif  
     <form action="{{route('register.submit')}}" accept-charset="UTF-8" id="formAcount" class="validate" method="post">
         {{csrf_field()}}
         {{-- <input type="hidden" value="f1a2a33e7e0ae075bd6cbf28e458a262-cc51197bbc9dcf43d04796a35d5f0a0f" name="csrf" id="csrf" /> --}}

@@ -4,8 +4,9 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\price;
 
 class CategoryController extends Controller
 {
@@ -38,19 +39,20 @@ class CategoryController extends Controller
      */
     public function store($CatID)
     {
+        // Lấy danh sách tất cả các danh mục
         $danhMuc = Category::all();
-        $product = DB::table('product')->where('Status', '1')->orderby('ProID','desc')->get();
-        $category = DB::table('category')->where('Status', '1')->orderby('CatID','desc')->get();
-        $price = DB::table('price')->select('ProID','Cost')->get();
-         // Lấy sản phẩm của danh mục cụ thể
-        $categorysp = DB::table('product')
-        ->join('category', 'product.CatID', '=', 'category.CatID')
-        ->where('product.CatID', $CatID)
-        ->get();
+    
+        // Lấy sản phẩm của danh mục cụ thể và tên của danh mục
+        $categorysp = Product::join('category', 'product.CatID', '=', 'category.CatID')
+            ->where('product.CatID', $CatID)
+            ->where('product.Status', 1)
+            ->get();
         // Lấy tên của danh mục dựa trên $CatID
-        $catName = DB::table('category')->where('CatID', $CatID)->value('CatName');
-        return view('danhMuc',compact('product','category','categorysp','danhMuc','price', 'catName'));
+        $catName = Category::where('CatID', $CatID)->value('CatName');
+    
+        return view('danhMuc', compact( 'categorysp', 'danhMuc', 'catName'));
     }
+    
 
     /**
      * Display the specified resource.

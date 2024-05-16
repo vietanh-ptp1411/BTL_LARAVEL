@@ -38,6 +38,8 @@
 								  <th>SP ID</th>
 								  <th>Tên SP</th>
 								  <th>Hình Ảnh</th>
+								  <th>Giá</th>
+								  <th>Số Lượng</th>
 								  <th>Trạng thái</th>
 								  <th>Chi Tiết </th>
 								  <th>Sửa</th>
@@ -51,6 +53,8 @@
 									<td>{{ $i++ }}</td>
 									<td>{{ $sp->ProName }}</td>
 									<td><img src="/DoAn3_IMG/{{$sp->ProImage}}" style="width:50px" ></td>
+									<td>{{number_format($sp->price) }} đ</td>
+									<td>{{ $sp->SoLuong }}</td>
 									<td><input type="checkbox" {{ $sp->Status ? 'checked' : '' }}></td>
 									<td><a href="{{route('product.detail',$sp->ProID)}}" class="btn btn-primary">Detail</a></td>
 									<td><a href="{{route('product.edit',$sp->ProID)}}" class="btn btn-warning">Edit</a></td>

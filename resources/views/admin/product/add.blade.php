@@ -32,84 +32,64 @@
             <table  class="table table-striped table-bordered bootstrap-datatable datatable">
                 <tbody>  
                     <tr>
-                        <td>CatID</td>
-                        <td><input type='text' name='CatID' id='CatID' ></td>                  
+                        <td>Mã loại:</td>
+                        <td><input style="width:400px" type='text' name='CatID' id='CatID' ></td>                  
                     </tr>
                     <tr>
-                        <td>Metatitle</td>
-                        <td><input type='text' name='Metatitle' id='Metatitle' ></td>                  
+                        <td>Tên sản phẩm:</td>
+                        <td><input style="width:400px" type='text' name='ProName' id='ProName' ></td>                  
                     </tr>
                     <tr>
-                        <td>ProName</td>
-                        <td><input type='text' name='ProName' id='ProName' ></td>                  
+                        <td>Giá:</td>
+                        <td><input style="width:400px" type='text' name='price' id='price' ></td>                  
                     </tr>
                     <tr>
-                        <td>ProDescription</td>
-                        <td><input type='text' name='ProDescription' id='ProDescription' ></td>                  
+                        <td>Chất liệu:</td>
+                        <td><input style="width:400px" type='text' name='Materials' id='Materials' ></td>                  
                     </tr>
                     <tr>
-                        <td>ProColor</td>
-                        <td><input type='text' name='ProColor' id='ProColor' ></td>                  
+                        <td>Size:</td>
+                        <td><input style="width:400px" type='text' name='Size' id='Size' ></td>                  
                     </tr>
                     <tr>
-                        <td>Materials</td>
-                        <td><input type='text' name='Materials' id='Materials' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>Size</td>
-                        <td><input type='text' name='Size' id='Size' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>ProImage</td>
+                        <td>Ảnh sản phẩm:</td>
                         <td>
-                            <input type='file' name='ProImage' id='ProImage' accept="DoAn3_IMG/*">
+                            <input style="width:400px" type='file' name='ProImage' id='ProImage' accept="DoAn3_IMG/*">
                         </td>                  
                     </tr>
-
                     <tr>
-                        <td>Tags</td>
-                        <td><input type='text' name='Tags' id='Tags' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>MoreImage</td>
-                        <td><input type='file' name='MoreImage' id='MoreImage' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>MoreImage</td>
-                        <td><input type='file' name='MoreImage' id='MoreImage' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>MoreImage</td>
-                        <td><input type='file' name='MoreImage' id='MoreImage' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>CreateBy</td>
-                        <td><input type='text' name='CreateBy' id='CreateBy' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>Displayhome</td>
-                        <td><input type='text' name='Displayhome' id='Displayhome' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>Status</td>
-                        <td><input type='text' name='Status' id='Status' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>inventory</td>
-                        <td><input type='text' name='inventory' id='inventory' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>sold</td>
-                        <td><input type='text' name='sold' id='sold' ></td>                  
-                    </tr>
-                    <tr>
-                        <td>MetaDescriptions</td>
+                        <td>Ảnh chi tiết:</td>
                         <td>
-                            <div class="control-group hidden-phone">
-                                <label class="control-label" for="textarea2"></label>
-                                <div class="controls">
-                                    <textarea name='MetaDescriptions' id='MetaDescriptions' class="cleditor" id="textarea2" rows="3" ></textarea>
-                                </div>
+                            <input style="width:500px" type='file' name='MoreImage1' id='MoreImage1' accept="DoAn3_IMG/*" multiple>
+                            <input style="width:500px" type='file' name='MoreImage2' id='MoreImage2' accept="DoAn3_IMG/*" multiple>
+                            <input style="width:500px" type='file' name='MoreImage3' id='MoreImage3' accept="DoAn3_IMG/*" multiple>
+                        </td>                  
+                    </tr>
+                    <tr>
+                        <td>Người tạo:</td>
+                        <td><input style="width:400px" type='text' name='CreateBy' id='CreateBy' ></td>                  
+                    </tr>
+                    <tr>
+                        <td>Displayhome:</td>
+                        <td><input style="width:400px" type='text' name='Displayhome' id='Displayhome' ></td>                  
+                    </tr>
+                    <tr>
+                        <td>Trạng thái:</td>
+                        <td><input style="width:400px" type='text' name='Status' id='Status' ></td>                  
+                    </tr>
+                    <tr>
+                        <td>Số lượng</td>
+                        <td><input style="width:400px" type='text' name='SoLuong' id='SoLuong' ></td>                  
+                    </tr>
+                    <tr>
+                        <td>Đã bán</td>
+                        <td><input style="width:400px" type='text' name='DaBan' id='DaBan' ></td>                  
+                    </tr>
+                    <tr>
+                        <td>Mô tả</td>
+                        <td>
+                            <div class="controls">
+                                <textarea style="width:300px;height:150px" name='ProDescription' id='ProDescription' class="" rows="3" ></textarea>
                             </div>
                         </td>
                     </tr>             

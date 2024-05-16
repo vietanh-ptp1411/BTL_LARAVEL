@@ -29,94 +29,68 @@
         <table class="table table-striped table-bordered bootstrap-datatable datatable">
             <tbody>  
             <tr>
-                    <td>ProID:</td>      
-                    <td>    {{$ProID}}</td>            
+                    <td>Mã sản phẩm:</td>      
+                    <td>{{$ProID}}</td>            
                 </tr>
                 <tr>
-                    <td>CatID:</td>      
-                    <td>    {{$CatID}}</td>            
+                    <td>Mã loại:</td>      
+                    <td>{{$CatID}}</td>            
                 </tr>
                 <tr>
-                    <td>Metatitle:</td>      
-                    <td>    {{$Metatitle}}</td>            
+                    <td>Tên sản phẩm:</td>      
+                    <td>{{$ProName}}</td>            
                 </tr>
                 <tr>
-                    <td>ProName:</td>      
-                    <td>    {{$ProName}}</td>            
+                    <td>Giá:</td>      
+                    <td>{{number_format($price)}} đ</td>            
                 </tr>
                 <tr>
-                    <td>ProDescription:</td>      
-                    <td>    {{$ProDescription}}</td>            
+                    <td>Mô tả:</td>      
+                    <td>{{$ProDescription}}</td>            
                 </tr>
                 <tr>
-                    <td>ProColor:</td>      
-                    <td>    {{$ProColor}}</td>            
-                </tr>
-                <tr>
-                    <td>Materials:</td>      
-                    <td>    {{$Materials}}</td>            
+                    <td>Chất liệu:</td>      
+                    <td>{{$Materials}}</td>            
                 </tr>
                 <tr>
                     <td>Size:</td>      
-                    <td>    {{$Size}}</td>            
+                    <td>{{$Size}}</td>            
                 </tr>
                 <tr>
-                    <td>ProImage:</td>   
+                    <td>Ảnh:</td>   
                     <td><img src="/DoAn3_IMG/{{$ProImage}}" style="width:100px" ></td>            
                 </tr>
-
                 <tr>
-                    <td>Tags:</td>      
-                    <td>    {{$Tags}}</td>            
-                </tr>
-                <tr>
-                    <td>MoreImage:</td>
+                    <td>Ảnh chi tiết:</td>
                     <td>
-                        <div class="image-container">
-                            @foreach($imagemore as $m)
-                                <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $m) }}"
-                                    src="{{ asset('DoAn3_IMG/' . $m) }}"
-                                    alt="" style="width:100px">
-                            @endforeach
-                        </div>
+                        <img src="/DoAn3_IMG/{{$MoreImage1}}" style="width:100px" > 
+                        <img src="/DoAn3_IMG/{{$MoreImage2}}" style="width:100px" >
+                        <img src="/DoAn3_IMG/{{$MoreImage3}}" style="width:100px" >
                     </td>            
-                </tr>
-
-                        
-                               
-                </tr>
-
-                <tr>
-                    <td>created_at:</td>      
-                    <td>    {{$created_at}}</td>            
-                </tr>
-                <tr>
-                    <td>CreateBy:</td>      
-                    <td>    {{$CreateBy}}</td>            
-                </tr>
-                <tr>
-                    <td>MetaDescriptions:</td>      
-                    <td>    {{$MetaDescriptions}}</td>            
                 </tr>
                 <tr>
                     <td>Displayhome:</td>      
-                    <td>    {{$Displayhome}}</td>            
+                    <td>{{$Displayhome}}</td>            
                 </tr>
                 <tr>
-                    <td>Status:</td>      
-                    <td>    {{$Status}}</td>            
+                    <td>Trạng thái:</td>      
+                    <td>{{$Status}}</td>            
                 </tr>
                 <tr>
-                    <td>inventory:</td>      
-                    <td>    {{$inventory}}</td>            
+                    <td>Số lượng:</td>      
+                    <td>{{$SoLuong}}</td>            
                 </tr>
                 <tr>
-                    <td>sold:</td>      
-                    <td>    {{$sold}}</td>            
+                    <td>Đã bán:</td>      
+                    <td>{{$DaBan}}</td>            
                 </tr>
                 <tr>
-                    <td>updated_at:</td>      
-                    <td>    {{$updated_at}}</td>            
+                    <td>Người tạo:</td>      
+                    <td>{{$CreateBy}}</td>            
+                </tr>
+                <tr>
+                    <td>Ngày tạo:</td>      
+                    <td>{{$created_at}}</td>            
                 </tr>
             </tbody>
         </table>           

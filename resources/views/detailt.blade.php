@@ -27,15 +27,22 @@
 
             <div class="sp000">
                 <div class="k2">
-                    <a id="vap" href="#"><img id="mainImage" class="vap1" src="{{ asset('DoAn3_IMG/' . $product->ProImage) }}" alt=""></a>
+                    <a id="vap" href="#"><img id="mainImage" class="vap1" src="{{ asset('DoAn3_IMG/' . $ProImage) }}" alt=""></a>
                     <div class="u2">
                         <div class="u2-2">
                             <div class="u2-2-2" >
-                                @foreach($images as $m)
-                                <div class="u2-img" onclick="changeImage('{{ asset('/DoAn3_IMG/' . $m) }}')">
-                                    <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $m) }}" src="{{ asset('DoAn3_IMG/' . $m) }}" alt="">
+                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $ProImage) }}')">
+                                    <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $ProImage) }}" src="{{ asset('DoAn3_IMG/' . $ProImage) }}" alt="">
                                 </div>
-                                @endforeach 
+                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage1) }}')">
+                                    <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $MoreImage1) }}" src="{{ asset('DoAn3_IMG/' . $MoreImage1) }}" alt="">
+                                </div>
+                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage2) }}')">
+                                    <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $MoreImage2) }}" src="{{ asset('DoAn3_IMG/' . $MoreImage2) }}" alt="">
+                                </div>
+                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage3) }}')">
+                                    <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $MoreImage3) }}" src="{{ asset('DoAn3_IMG/' . $MoreImage3) }}" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,8 +59,8 @@
     
                 <div class="k3">
                     <div class="ten">
-                        <h1 class="title"><?=$product['ProName']?></h1>
-                        <div class="code">Mã sản phẩm: M.F400.NO.23034163</div>
+                        <h1 class="title">{{$ProName}}</h1>
+                        <div class="code">Đã bán {{$DaBan}}</div>
                     </div>
                     <div class="ten1">
                         <div class="ten1-1">
@@ -65,25 +72,26 @@
                     </div>
                     <div class="gia">
                         <div class="gia-price">
-                            <span>{{number_format($product['Cost'])}}đ</span>
+                            <span>{{number_format($price)}}đ</span>
+                        </div>
+                    </div>
+                    <div class="vanchuyen">
+                        <div class="vc">
+                            Vận chuyển
+                        </div>
+                        <div class="loaivc">
+                            <p>Xử lý bởi baloonline</p>
+                            <p>Miễn phí vận chuyển</p>
                         </div>
                     </div>
                     <div class="msl">
-                        <div class="msl1">
-                            <label class="sll1">Màu sắc</label>
-                            <div class="color">
-                                <a href=""><span style="background: #fecdc9;"></span></a>
-                                <a href=""><span style="background: #96D2E9;"></span></a>
-                                <a href=""><span style="background: #8833ee;"></span></a>
-                            </div>
-                        </div>
-
                         <form action="{{ route('save-cart') }}" method="POST">
                             {{csrf_field()}}
                             <div class="slz">
                                 <label class="sll1" for="">Số lượng</label>
                                 <input class="slz1" name="qty" type="number"  value="1" min="1">
-                                <input class="slz1" name="productID_hidden" type="hidden"  value="<?=$product['ProID']?>">
+                                <label class="sll1"> <p>{{$SoLuong}} sản phẩm có sẵn</p></label>
+                                <input class="slz1" name="productID_hidden" type="hidden"  value="{{$ProID}}">
                             </div>
 
                             <div class="slzz">
@@ -123,7 +131,7 @@
                         </div>
                         <div class="ttsp2">
                             <p style="text-align:justify;">
-                                <?=$product['ProDescription']?>
+                                {{$ProDescription}}
                             </p>
                         </div>    
                     </div>
@@ -133,7 +141,7 @@
                         </div>
                         <div class="ttsp2">
                             <p style="text-align:justify;">
-                                <?=$product['Materials']?>
+                                {{$Materials}}
                             </p>
                         </div>    
                     </div>
@@ -143,7 +151,7 @@
                         </div>
                         <div class="ttsp2">
                             <p style="text-align:justify;">
-                                <?=$product['Size']?>
+                                {{$Size}}
                             </p>
                         </div>    
                     </div>
@@ -165,7 +173,7 @@
                                 </div>
                                 <div class="product-info">
                                     <a href="#" class="product-name" title="{{ $s->ProName }}">{{ $s->ProName }}</a>
-                                    <div class="product-price" style="text-align: center;"><?=number_format($product['Cost'])?></div>
+                                    <div class="product-price" style="text-align: center;">{{number_format($price)}} đ</div>
                                 </div>
                             </div>
                         </li>

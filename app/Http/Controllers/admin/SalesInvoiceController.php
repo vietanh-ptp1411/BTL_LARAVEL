@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-use Barryvdh\DomPDF\Facade as PDF;
 
+
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Models\SalesInvoice;
 use App\Models\SalesInvoiceDetail;
 use App\Models\Customer;
-
 
 
 
@@ -24,6 +23,11 @@ class SalesInvoiceController extends Controller
     {
         $customer = Customer::all();
         $salesinvoice = SalesInvoice::all();
+        return view('admin.SalesInvoice.index',compact('salesinvoice','customer'));
+    }
+    public function fileHoaDon()
+    {
+        
         return view('admin.SalesInvoice.index',compact('salesinvoice','customer'));
     }
 
@@ -86,7 +90,6 @@ class SalesInvoiceController extends Controller
             $Quantities[] = $detail->Quantity;
             $Prices[] = $detail->Price;
         }
-        
         return view('admin.SalesInvoice.detail', compact('sale','saleDetails','MaDonHang', 'CusID','SalName','SalDate','Address','Phone','MoneyTotal','Note','created_at','updated_at','ProIDs','Quantities','Prices'));
     
     }
@@ -97,43 +100,47 @@ class SalesInvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function printInvoice(Request $request)
+
+
+    //in hóa đơn
+    public function printInvoices($SalID)
     {
-        $SalID = $request->input('SalID');
-        $invoice = SalesInvoice::find($SalID);
+        $sale = SalesInvoice::where('SalID', $SalID)->first();
 
-        if (!$invoice) {
-            // Xử lý trường hợp hóa đơn không tồn tại
-            // Ví dụ: Hiển thị thông báo lỗi
-            return redirect()->back()->with('error', 'Hóa đơn không tồn tại.');
+        if (!$sale) {
+            // Xử lý khi không tìm thấy category với CatID tương ứng
+            return abort(404); // Trả về trang lỗi 404
         }
-        $maDonHang = $request->input('MaDonHang');
-        $salName = $request->input('SalName');
-        $address = $request->input('Address');
-        $phone = $request->input('Phone');
-        $salDate = $request->input('SalDate');
-        $note = $request->input('Note');
-        $proIDs = $request->input('ProIDs');
-        $quantities = $request->input('Quantities');
-        $prices = $request->input('Prices');
-        $moneyTotal = $request->input('MoneyTotal');
+        $MaDonHang = $sale->MaDonHang;
+        $CusID = $sale->CusID;
+        $SalName = $sale->SalName;
+        $Address = $sale->Address;
+        $Phone = $sale->Phone;
+        $SalDate = $sale->SalDate;
+        $MoneyTotal = $sale->MoneyTotal;
+        $Note = $sale->Note;
+        $MoneyTotal = $sale->MoneyTotal;
+        $Note = $sale->Note;
+        $created_at = $sale->created_at;
+        $updated_at = $sale->updated_at;
 
-        // Load view và tạo PDF
-    
-        // $dompdf = new Dompdf();
-        // $dompdf->loadHtml(view('SalesInvoice.invoice', $SalID,$maDonHang,$salName,$address,$phone,$salDate,$note,$proIDs,$quantities,$prices,$moneyTotal));
-        $pdf = PDF::loadView('SalesInvoice.invoice', compact('SalID', 'maDonHang', 'salName', 'address', 'phone', 'salDate', 'note', 'proIDs', 'quantities', 'prices', 'moneyTotal'));
-        return $pdf->download('SalesInvoice.invoice.pdf');
-
-        // Trả về file PDF để tải xuống
-        // $dompdf->render();
-        // return $dompdf->stream('invoice');
-
-        // $pdf = \App::make('dompdf.wrapper');
-        // $pdf->loadHTML($this->print_order_convert($checkoutcode));
         
 
+        $saleDetails = SalesInvoiceDetail::where('SalID', $SalID)->get();
+        $ProIDs = [];
+        $Quantities = [];
+        $Prices = [];
+        foreach ($saleDetails as $detail) {
+            $ProIDs[] = $detail->ProID;
+            $Quantities[] = $detail->Quantity;
+            $Prices[] = $detail->Price;
+        }
+
+        
+        $pdf =Pdf::loadView('admin.SalesInvoice.invoice' , compact('sale','saleDetails','MaDonHang', 'CusID','SalName','SalDate','Address','Phone','MoneyTotal','Note','created_at','updated_at','ProIDs','Quantities','Prices'));
+        return $pdf->stream( 'Orderlnvoice.pdf' ) ;
     }
+
 
     /**
      * Update the specified resource in storage.

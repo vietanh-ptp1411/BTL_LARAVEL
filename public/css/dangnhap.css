@@ -280,8 +280,10 @@ body{
     font-size: 20px;
     text-align: center;
     padding: 10px 10px;
-    border-bottom: 2px solid transparent;
     color: #ffb0bd;
+}
+.active{
+  border-bottom: 2px solid #ffb0bd;
 }
 .dangnhap{
   width: 100%;
@@ -303,9 +305,6 @@ body{
 
 
 
-.user-nav a.active, .user-nav a:hover{
-    border-bottom: 2px solid #ffb0bd;
-}
 .user-wrapper #formAcount{
     padding: 20px;
 }

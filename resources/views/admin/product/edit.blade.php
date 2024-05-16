@@ -33,27 +33,19 @@
             <table  class="table table-striped table-bordered bootstrap-datatable datatable">
                 <tbody>  
                     <tr>
-                        <td>CatID</td>
+                        <td>Mã loại:</td>
                         <td><input style="width:500px" type='text' name='CatID' id='CatID' value='{{$product->CatID}}'></td>                  
                     </tr>
                     <tr>
-                        <td>Metatitle</td>
-                        <td><input style="width:500px" type='text' name='Metatitle' id='Metatitle' value='{{$product->Metatitle}}'></td>                  
-                    </tr>
-                    <tr>
-                        <td>ProName</td>
+                        <td>Tên sản phẩm:</td>
                         <td><input style="width:500px" type='text' name='ProName' id='ProName' value='{{$product->ProName}}'></td>                  
                     </tr>
                     <tr>
-                        <td>ProDescription</td>
-                        <td><input style="width:500px" type='text' name='ProDescription' id='ProDescription' value='{{$product->ProDescription}}'></td>                  
+                        <td>Giá:</td>
+                        <td><input style="width:500px" type='text' name='ProName' id='ProName' value='{{$product->price}}'></td>                  
                     </tr>
                     <tr>
-                        <td>ProColor</td>
-                        <td><input style="width:500px" type='text' name='ProColor' id='ProColor' value='{{$product->ProColor}}'></td>                  
-                    </tr>
-                    <tr>
-                        <td>Materials</td>
+                        <td>Chất liệu</td>
                         <td><input style="width:500px" type='text' name='Materials' id='Materials' value='{{$product->Materials}}'></td>                  
                     </tr>
                     <tr>
@@ -61,19 +53,19 @@
                         <td><input style="width:500px" type='text' name='Size' id='Size' value='{{$product->Size}}'></td>                  
                     </tr>
                     <tr>
-                        <td>ProImage</td>
+                        <td>Ảnh sản phẩm:</td>
                         <td><input style="width:500px" type='file' name='ProImage' id='ProImage' accept="DoAn3_IMG/*"></td>                  
                     </tr>
                     <tr>
-                        <td>Tags</td>
-                        <td><input style="width:500px" type='text' name='Tags' id='Tags' value='{{$product->Tags}}'></td>                  
+                        <td>Ảnh chi tiết</td>
+                        <td>
+                            <input style="width:500px" type='file' name='MoreImage1' id='MoreImage1' accept="DoAn3_IMG/*" multiple>
+                            <input style="width:500px" type='file' name='MoreImage2' id='MoreImage2' accept="DoAn3_IMG/*" multiple>
+                            <input style="width:500px" type='file' name='MoreImage3' id='MoreImage3' accept="DoAn3_IMG/*" multiple>
+                        </td>                  
                     </tr>
                     <tr>
-                        <td>MoreImage</td>
-                        <td><input style="width:500px" type='file' name='MoreImage[]' id='MoreImage' accept="DoAn3_IMG/*" multiple></td>                  
-                    </tr>
-                    <tr>
-                        <td>CreateBy</td>
+                        <td>Người tạo</td>
                         <td><input style="width:500px" type='text' name='CreateBy' id='CreateBy' value='{{$product->CreateBy}}'></td>                  
                     </tr>
                     <tr>
@@ -81,26 +73,21 @@
                         <td><input style="width:500px" type='text' name='Displayhome' id='Displayhome' value='{{$product->Displayhome}}'></td>                  
                     </tr>
                     <tr>
-                        <td>Status</td>
+                        <td>Trạng thái</td>
                         <td><input style="width:500px" type='text' name='Status' id='Status' value='{{$product->Status}}'></td>                  
                     </tr>
                     <tr>
-                        <td>inventory</td>
+                        <td>Số lượng</td>
                         <td><input style="width:500px" type='text' name='inventory' id='inventory' value='{{$product->inventory}}'></td>                  
                     </tr>
                     <tr>
-                        <td>sold</td>
+                        <td>Đã bán</td>
                         <td><input style="width:500px" type='text' name='sold' id='sold' value='{{$product->sold}}'></td>                  
                     </tr>
                     <tr>
-                        <td>MetaDescriptions</td>
+                        <td>Mô tả:</td>
                         <td>
-                            <div class="control-group hidden-phone">
-                                <label class="control-label" for="textarea2"></label>
-                                <div class="controls">
-                                    <textarea class="cleditor" id="textarea2" name="MetaDescriptions" rows="3" value="">{{ $product->MetaDescriptions }}</textarea>
-                                </div>
-                            </div>
+                            <textarea style="width:300px;height:150px" id="textarea2" name="ProDescription" rows="3">{{ $product->ProDescription }}</textarea>   
                         </td>
                     </tr>
                 </tbody> 

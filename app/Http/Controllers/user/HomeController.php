@@ -13,13 +13,16 @@ class HomeController extends Controller
     public function index()
     {
         $danhMuc = Category::all();
-        // $product = DB::table('product')->get();
-        $product = product::paginate(8); 
+
+        // Truy vấn dữ liệu từ bảng product lấy ra các sp có status =1 và sắp xếp theo ProID giảm dần
+        $productQuery = DB::table('product')->where('Status', '1')->orderBy('ProID', 'asc');
+        // Lấy dữ liệu dùng paginate
+        $product = $productQuery->paginate(8);
+
         $menu = DB::table('menu')->select('ID', 'Text')->whereNull('parentID')->get();
-        $price = DB::table('price')->select('ProID','Cost')->get();
         $category = DB::table('category')->select('CatName','CatIMG')->whereNull('MetaTitle')->get();
         $blog = DB::table('blog')->select('BlogID','Name','Image','Description')->get();
-        return view('index', compact('product', 'menu','category','price','danhMuc','blog'));
+        return view('index', compact('product', 'menu','category','danhMuc','blog'));
 
     }
     

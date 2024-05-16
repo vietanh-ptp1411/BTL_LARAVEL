@@ -285,7 +285,7 @@ body{
   .sp000{
     display: flex;
     width: 1200px;
-    height: 690px;
+    height: auto;
   }
   .k2{
     flex: 0 0 50%;
@@ -309,9 +309,7 @@ body{
   }
   .u2{
     display: flex;
-    flex-wrap: wrap;
     width: 100%;
-    height: 105px;
   }
   .u2-2{
     padding: 0 45px;
@@ -319,14 +317,13 @@ body{
   }
   .u2-2-2{
     display: flex;
-    width: 345px;
-    height: 105px;
+    width: 100%;
+    height: 100px;
     margin: auto;
+    justify-content: space-between;
   }
   .u2-img{
     margin: 0 5px;
-    width: 105px;
-    height: 105px;
     border: 1px solid #000
   }
   .u2-img img{
@@ -340,14 +337,18 @@ body{
     max-width: 50%;
     padding: 0 15px;
     width: 590px;
-    height: 690px;
+    height: auto;
     float: right; 
+    box-sizing: border-box;
   }
   .ten{
     display: inline-flex;
     flex-wrap: wrap;
-    width: 86%;
+    width: 85%;
     margin-bottom: 20px;
+  }
+  .ten h1{
+    width: 100%;
   }
   h1{
     font-size: 25px;
@@ -382,15 +383,9 @@ body{
 
   .msl{
     width: 100%;
-    height: 180px;
+    height: auto;
   }
-  .msl1{
-    display: flex!important;
-    align-items: center;
-    width: 100%;
-    height: 38px;
-    margin-bottom: 25px;
-  }
+  
   .sll1{
     margin: 0 15px 0 0;
     padding-top: 3px;
@@ -398,30 +393,27 @@ body{
     min-width: 85px;
     font-family: 'Nunito-Regular';
   }
-  .color{
-    display: flex;
-    float: left;
-    width: 120px;
-    height: 38px;
-  }
-  .color a{
-    display: block;
-    border: 2px solid transparent;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-  }
-  .color a span{
-    display: block;
-    border: 2px solid transparent;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-  }
+  
 
+  .vanchuyen{
+    display: flex;
+    font-size: 18px;
+    font-family: 'Nunito-Regular';
+    margin-bottom: 20px;
+  }
+  .vc{
+    
+  }
+  .loaivc{
+    margin-left: 20px;
+  }
+  .loaivc p{
+    margin-bottom: 5px;
+    color: #b7b7b7;
+  }
 
   .slz{
-    width: 150px;
+    width: 100%;
     height: 32px;
     margin-bottom: 25px;
     display: flex;
@@ -455,6 +447,12 @@ body{
     width: 50px;
     min-height: 30px;
     text-align: center;
+  }
+  .sll1 p{
+    color: #b7b7b7;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 3px;
   }
 
 
@@ -517,12 +515,12 @@ body{
 
   .k4{
     max-width: 100%;
-    height: 400px;
+    height: auto;
     padding: 0 15px;
   }
   .u4{
     width: 1168px;
-    height: 300px;
+    height: auto;
     padding: 20px;
     margin: 70px 0 60px;
     border: 1px solid rgba(112,112,112,.65);
@@ -535,7 +533,8 @@ body{
   
   .thongtinsp{
     display: flex;
-    height: 70px;
+    height: auto;
+    margin-bottom: 20px;
   }
   .ttsp1{
     flex: 30%;

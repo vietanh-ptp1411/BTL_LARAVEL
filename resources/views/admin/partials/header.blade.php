@@ -6,7 +6,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="/admins/home.php"><span>PTP</span></a>
+				<a class="brand" href="{{route('admin')}}"><span>PTP</span></a>
 								
 				<!-- start: Header Menu -->
 				<div class="nav-no-collapse header-nav">
@@ -260,18 +260,33 @@
 						
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
-							<a class="btn dropdown-toggle" data-toggle="dropdown" href="/#">
-								<i class="halflings-icon white user"></i> Anh PTP
-								<span class="caret"></span>
-							</a>
+							<?php
+							$id = Session::get('id');
+							if ($id != NULL) {
+								$userName = Session::get('name');
+							?>
+								<a class="btn dropdown-toggle" data-toggle="dropdown" href="/#">
+									<i class="halflings-icon white user"></i> <?php echo $userName; ?>
+									<span class="caret"></span>
+								</a>
+							<?php
+							} else {
+							?>
+								<a class="btn dropdown-toggle" data-toggle="dropdown" href="/#">
+									<i class="halflings-icon white user"></i> Tài khoản
+									<span class="caret"></span>
+								</a>
+							<?php
+							}
+							?>
+							
 							<ul class="dropdown-menu">
 								<li class="dropdown-menu-title">
  									<span>Account Settings</span>
 								</li>
-								<li><a href="/#"><i class="halflings-icon user"></i> Profile</a></li>
 								<?php
-									$customerID= Session::get('CusID');
-									if($customerID != NULL){
+									$id = Session::get('id');
+									if($id != NULL){
 								?>
 									<li style="margin-right: 10px"></li>
 									<li><a href="{{route('logout')}}"><i class="halflings-icon off"></i> Đăng xuất</a></li>
@@ -279,6 +294,7 @@
 								}else {
 									?>
 									<li><a href="{{route('login')}}"><i class="halflings-icon off"></i> Đăng nhập</a></li>
+									<li><a href="{{route('login')}}"><i class="halflings-icon off"></i> Đăng ký</a></li>
 									<?php
 								}
 								?>

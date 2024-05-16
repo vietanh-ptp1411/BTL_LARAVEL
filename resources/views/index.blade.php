@@ -69,11 +69,8 @@
                                 </div>
                                 <div class="product-info">
                                     <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-name" title="{{$sp->ProName}}">{{$sp->ProName}}</a>
-                                    @foreach($price as $p)
-                                        @if($p->ProID == $sp->ProID)
-                                            <div class="product-price" style="text-align: center;">{{number_format($p->Cost)}} đ</div>
-                                        @endif
-                                    @endforeach
+                                    <div class="product-price" style="text-align: center;">{{number_format($sp->price)}} đ</div>
+                                     
                                 </div>  
                             </div>
                         </li>
@@ -117,11 +114,7 @@
                                 </div>
                                 <div class="product-info">
                                     <a href="{{ route('detailt', ['ProID' => $sp->ProID]) }}" class="product-name" title="{{$sp->ProName}}">{{$sp->ProName}}</a>
-                                    @foreach($price as $p)
-                                        @if($p->ProID == $sp->ProID)
-                                            <div class="product-price" style="text-align: center;">{{number_format($p->Cost)}} đ</div>
-                                        @endif
-                                    @endforeach
+                                    <div class="product-price" style="text-align: center;">{{number_format($sp->price)}} đ</div>
                                 </div>
                             </div>
                         </li>

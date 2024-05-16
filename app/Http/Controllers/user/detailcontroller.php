@@ -15,21 +15,34 @@ class detailcontroller extends Controller
     public function showProduct($ProID)
     {
         $danhMuc = Category::all();
-        $product = Product::join('price', 'product.ProID', '=', 'price.ProID')
-            ->where('product.ProID', $ProID)
-            ->select('product.*', 'price.Cost')
-            ->first();
+        $product = Product::where('ProID', $ProID)->first();
 
         if (!$product) {
-            return redirect()->route('home');
+            
+            return redirect()->route('home'); // Trả về trang chủ
         }
+        $ProID = $product->ProID;
+        $ProName = $product->ProName;
+        $ProDescription = $product->ProDescription;
+        $Materials = $product->Materials;
+        $Size = $product->Size;
+        $ProImage = $product->ProImage;
+        $MoreImage1 = $product->MoreImage1;
+        $MoreImage2 = $product->MoreImage2;
+        $MoreImage3 = $product->MoreImage3;
+        $SoLuong = $product->SoLuong;
+        $DaBan = $product->DaBan;
+        $price = $product->price;
 
-        $images = explode(',', $product->MoreImage);
+
+        
+        //Sản phẩm có chung CatID (danh mục)
         $sp = Product::where('CatID', $product->CatID)
             ->limit(20)
             ->get()
             ->except($ProID);
-        return view('detailt', compact('product', 'images', 'sp','danhMuc'));
+
+        return view('detailt', compact('product',  'sp','danhMuc','ProID','ProName','ProDescription','Materials','Size','ProImage','MoreImage1','MoreImage2','MoreImage3','SoLuong','DaBan','price',));
     }
     
 }

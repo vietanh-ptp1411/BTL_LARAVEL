@@ -163,11 +163,11 @@
                                 <td style="text-align: right;">0 đ</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><strong >Tổng cộng</strong></td>
-                                <td style="text-align: right;" name="MoneyTotal">
-                                    {{Cart::priceTotal(0, ',','.')  }} đ
+                                <td colspan="2"><strong>Tổng cộng</strong></td>
+                                <td style="text-align: right;">
+                                    {{ Cart::priceTotal(0, ',', '.') }} đ
+                                    <input type="hidden" name="MoneyTotal" value="{{ Cart::priceTotal(0, ',', '.') }}">
                                 </td>
-                                <input type="hidden" name="MoneyTotal" value="<?php echo $suptotal; ?>">
                             </tr>
                         </tfoot>
                     </table>

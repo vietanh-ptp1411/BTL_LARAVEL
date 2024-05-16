@@ -70,48 +70,66 @@
                     <td>{{$ReceivingEmail}}</td>            
                 </tr>
                 <tr>
-                    <td colspan="2" style="padding-left: 100px; color: blue;">Chi tiết các sản phẩm khách mua là:</td>
-                </tr>
-                @php $i = 1; @endphp
-                @foreach($ProIDs as $key => $ProID)
-                    <tr>
-                        <td>Sản phẩm thứ {{ $i++ }}:</td>      
-                        <td>
-                            @php
-                                $product = App\Models\Product::find($ProID);
-                                if($product) {
-                                    echo $product->ProName;
-                                } else {
-                                    echo "Không tìm thấy sản phẩm";
-                                }
-                            @endphp
-                        </td>            
-                    </tr>
-                    <tr>
-                        <td>Số lượng:</td>      
-                        <td>{{$Quantities[$key]}}</td>            
-                    </tr>
-                    <tr>
-                        <td>Giá:</td>      
-                        <td>{{$Prices[$key]}}</td>            
-                    </tr>
-                @endforeach        
-                </tr>
-                <tr>
-                    <td colspan="2"></td>
-                </tr>
-                <tr>
-                    <td>Tổng tiền:</td>      
-                    <td>{{ number_format($MoneyTotal) }}</td>            
+                    <td>Hình thức thanh toán:</td>      
+                    <td>{{$Payment}}</td>            
                 </tr>
                 <tr>
                     <td>Ghi chú:</td>      
                     <td>{{$Note}}</td>            
                 </tr>
                 <tr>
-                    <td>Hình thức thanh toán:</td>      
-                    <td>{{$Payment}}</td>            
+                    <td colspan="2" style="padding-left: 100px; color: blue;">Chi tiết các sản phẩm khách mua là:</td>
                 </tr>
+                <tr>
+                    <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                        <thead>
+                            <tr style="border-bottom: 1px solid #a2a2a2;">
+                                <th style="width: 5%;text-align: center;">STT</th>
+                                <th style="width: 40%;text-align: center;">Tên sản phẩm</th>
+                                <th style="width: 20%;text-align: center;">Ảnh sản phẩm</th>
+                                <th style="width: 10%;text-align: center;">Số lượng</th>
+                                <th style="width: 10%;text-align: center;">Giá</th>
+                                <th style="width: 15%;text-align: center;">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        @php $i = 1; @endphp
+                        @foreach($ProIDs as $key => $ProID)
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">{{ $i++ }}</td>      
+                                    <td style="text-align: center;">
+                                        @php
+                                            $product = App\Models\Product::find($ProID);
+                                            if($product) {
+                                                echo $product->ProName;
+                                            } else {
+                                                echo "Không tìm thấy sản phẩm";
+                                            }
+                                        @endphp
+                                    </td>          
+                                    <td style="text-align: center;">
+                                        @php
+                                            $product = App\Models\Product::find($ProID);
+                                            if($product) {
+                                                echo '<img src="/DoAn3_IMG/' . $product->ProImage . '" style="width:100px" >';
+                                            } else {
+                                                echo "Không tìm thấy sản phẩm";
+                                            }
+                                        @endphp
+                                    </td>    
+                                    <td style="text-align: center;">{{$Quantities[$key]}}</td>        
+                                    <td style="text-align: center;">{{number_format($Prices[$key])}}đ</td>            
+                                    <td style="text-align: center;">{{number_format($Quantities[$key] * $Prices[$key]) }} đ</td>            
+                                </td>
+                            </tbody>   
+                        @endforeach  
+                    </table>  
+                </tr> 
+               
+                <div style="display: flex">
+                    <p style="color: red; margin-right:15px">Tổng tiền:</p>      
+                    <p>{{ number_format($MoneyTotal) }} đ</p>            
+                </div>
             </tbody>
         </table>           
     </div>
