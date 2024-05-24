@@ -34,7 +34,6 @@ class CartController extends Controller
      */
     public function savecart(Request $request)
     {
-        $danhMuc = Category::all();
         $productID = $request->productID_hidden;
         $quantity = $request->qty;
         $product_info = DB::table('product')->where('ProID',$productID)->first();

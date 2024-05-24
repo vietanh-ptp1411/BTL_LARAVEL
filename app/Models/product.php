@@ -10,11 +10,15 @@ class Product extends Model
 
     protected $primaryKey = 'ProID';
     // Các cột được phép gán giá trị
-    protected $fillable = ['ProID', 'CatID', 'ProName', 'ProDescription', 'ProImage', 'MoreImage','Materials','Size'];
+    protected $fillable = ['ProID', 'CatID', 'ProName', 'ProDescription', 'ProImage', 'MoreImage', 'Materials', 'Size'];
 
     // Các mối quan hệ với các mô hình khác
     public function price()
     {
         return $this->hasOne(Price::class, 'ProID', 'ProID');
+    }
+    public function importbill()
+    {
+        return $this->hasOne(Importbill::class, 'ProID', 'ProID');
     }
 }

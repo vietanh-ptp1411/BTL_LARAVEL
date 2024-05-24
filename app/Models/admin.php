@@ -9,9 +9,9 @@ use Illuminate\Notifications\Notifiable;
 // use database\seeders\DatabaseSeeder;
 class Admin extends Authenticatable
 {
-    use HasFactory,Notifiable;
+    use HasFactory, Notifiable;
     public $timestamps = false;
-    
+
     protected $table = 'admin';
     protected $primaryKey = 'id';
     protected $fillable = [
@@ -22,16 +22,20 @@ class Admin extends Authenticatable
         'phone'
     ];
 
-    public function roles(){
+    public function roles()
+    {
         return $this->belongsToMany('App\Models\Admin\Roles');
     }
-    public function getAuthPassword(){
+    public function getAuthPassword()
+    {
         return $this->password;
     }
-    public function hasAnyRoles($roles){
-        return null !== $this->roles()->whereIn('name',$roles)->first();
+    public function hasAnyRoles($roles)
+    {
+        return null !== $this->roles()->whereIn('name', $roles)->first();
     }
-    public function hasRole($roles){
-        return null !== $this->roles()->where('name',$roles)->first();
+    public function hasRole($roles)
+    {
+        return null !== $this->roles()->where('name', $roles)->first();
     }
 }

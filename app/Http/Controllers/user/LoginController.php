@@ -30,6 +30,7 @@ class LoginController extends Controller
 
         $customer = DB::table('customer')->where('UserName', $username)->first();
         $admin = DB::table('admin')->where('email', $username)->first();
+        $employee = DB::table('employee')->where('EmpEmail', $username)->first();
         
         if($customer && Hash::check($password, $customer->Password)){
             Session::put('CusID', $customer->CusID);
@@ -39,6 +40,13 @@ class LoginController extends Controller
         elseif($admin && Hash::check($password, $admin->password)){
             Session::put('id', $admin->id);
             Session::put('name', $admin->name);
+            Session::put('chucvu', $admin->chucvu);
+            return redirect('/admin');
+        }
+        elseif($employee && Hash::check($password, $employee->Password)){
+            Session::put('EmpID', $employee->EmpID);
+            Session::put('EmpName', $employee->EmpName);
+            Session::put('Role', $employee->Role);
             return redirect('/admin');
         }
         else{

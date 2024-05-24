@@ -152,9 +152,54 @@ Route::controller(App\Http\Controllers\admin\SalesInvoiceController::class)->gro
 
 
 //Hóa đơn nhập
-Route::controller(App\Http\Controllers\admin\SalesInvoiceController::class)->group(function(){
-    Route::get('/indexSalesInvoice', 'index')->name('SalesInvoice.index');
+Route::controller(App\Http\Controllers\admin\ImportbillController::class)->group(function(){
+    Route::get('/indexImportbill', 'index')->name('importbill.index');
+    Route::get('/createImportbill',  'create')->name('importbill.create');
+    Route::post('/storeImportbill',  'store')->name('importbill.store');
+    Route::get('/showImport/{ImpID}',  'show')->name('importbill.detail');
+    Route::get('/destroyImport/{ImpID}', 'destroy')->name('importbill.destroy');
+    Route::get('/printImportbill/{ImpID}', 'printImportbill')->name('printImportbill');
 });
+
+
+
+
+//Nhà cung cấp
+Route::controller(App\Http\Controllers\admin\SupplierController::class)->group(function(){
+    Route::get('/index_supplier','index')->name('supplier.index');
+    Route::get('/createSupplier','create')->name('supplier.create');
+    Route::post('/storeSupplier','store')->name('supplier.store');
+    Route::get('/showSupplier/{SupID}','show')->name('supplier.detail');
+    Route::get('/editSupplier/{SupID}','edit')->name('supplier.edit');
+    Route::put('/updateSupplier/{SupID}','update')->name('supplier.update');
+    Route::get('/destroySupplier/{SupID}','destroy')->name('supplier.destroy');
+});
+
+
+
+
+//Nhân viên
+Route::controller(App\Http\Controllers\admin\EmployeeController::class)->group(function(){
+    Route::get('/index_employee','index')->name('employee.index');
+    Route::get('/create_employee','create')->name('employee.create');
+    Route::post('/store_employee','store')->name('employee.store');
+    Route::get('/show_employee/{EmpID}','show')->name('employee.detail');
+    Route::get('/edit_employee/{EmpID}','edit')->name('employee.edit');
+    Route::put('/update_employee/{EmpID}','update')->name('employee.update');
+    Route::get('/destroy_employee/{EmpID}','destroy')->name('employee.destroy');
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Phân quyền đăng nhập
 Route::controller(App\Http\Controllers\admin\UserController::class)->group(function(){

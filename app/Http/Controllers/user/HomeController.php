@@ -18,14 +18,20 @@ class HomeController extends Controller
         $productQuery = DB::table('product')->where('Status', '1')->orderBy('ProID', 'asc');
         // Lấy dữ liệu dùng paginate
         $product = $productQuery->paginate(8);
+        // Lấy 4 sản phẩm mới nhất với CatID = 1 cho "Chủ đề mới"
+        $newProducts = DB::table('product')
+            ->where('Status', '1')
+            ->where('CatID', '6')
+            ->orderBy('ProID', 'desc')
+            ->take(4)
+            ->get();
 
         $menu = DB::table('menu')->select('ID', 'Text')->whereNull('parentID')->get();
-        $category = DB::table('category')->select('CatName','CatIMG')->whereNull('MetaTitle')->get();
-        $blog = DB::table('blog')->select('BlogID','Name','Image','Description')->get();
-        return view('index', compact('product', 'menu','category','danhMuc','blog'));
-
+        $category = DB::table('category')->select('CatName', 'CatIMG')->whereNull('MetaTitle')->get();
+        $blog = DB::table('blog')->select('BlogID', 'Name', 'Image', 'Description')->get();
+        return view('index', compact('product', 'menu', 'category', 'danhMuc', 'blog', 'newProducts'));
     }
-    
+
     // ////nút xem thêm
     // public function getMoreProducts(Request $request)
     // {
@@ -55,16 +61,15 @@ class HomeController extends Controller
     {
         $danhMuc = Category::all();
         // Lấy tất cả sản phẩm có status =1 ra và sắp xếp tăng dần
-        $product = DB::table('product')->where('Status', '1')->orderby('ProID','asc')->get();
+        $product = DB::table('product')->where('Status', '1')->orderby('ProID', 'asc')->get();
         $menu = DB::table('menu')->select('ID', 'Text')->whereNull('parentID')->get();
-        $price = DB::table('price')->select('ProID','Cost')->get();
-        $category = DB::table('category')->select('CatName','CatIMG')->whereNull('MetaTitle')->get();
-        
+        $price = DB::table('price')->select('ProID', 'Cost')->get();
+        $category = DB::table('category')->select('CatName', 'CatIMG')->whereNull('MetaTitle')->get();
+
         //tìm từ khóa theo tên sản phẩm
         $keywords = $request->keywordsubmit;
-        $search_product = DB::table('product')->where('ProName' , 'like', '%' .$keywords.  '%')->get();
+        $search_product = DB::table('product')->where('ProName', 'like', '%' . $keywords .  '%')->get();
 
-        return view('search', compact('product', 'menu','category','price','danhMuc','search_product'));
+        return view('search', compact('product', 'menu', 'category', 'price', 'danhMuc', 'search_product'));
     }
-
 }

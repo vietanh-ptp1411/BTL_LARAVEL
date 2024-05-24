@@ -103,7 +103,7 @@
                 <div id="wrapper">
                     <ul class="product" id="product-list2">
                         <!-- Hiển thị 4 sản phẩm ban đầu -->
-                        @foreach($product->take(4) as $sp)
+                        @foreach($newProducts->take(4) as $sp)
                         <li>
                             <div class="product-item">
                                 <div class="product-top">
@@ -121,9 +121,9 @@
                         @endforeach
                     </ul>
                     <!-- Nút "Xem thêm" -->
-                    <div>
-                        {{ $product->links() }} 
-                    </div>
+                    {{-- <div>
+                        {{ $newProducts->links() }}
+                    </div> --}}
                 </div>
             </div>
 

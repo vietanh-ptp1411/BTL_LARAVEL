@@ -6,7 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Importbill;
+use App\Models\ImportbillDetail;
 use App\Models\Customer;
+use App\Models\Product;
+
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Supplier;
 
 class ImportbillController extends Controller
 {
@@ -17,8 +22,9 @@ class ImportbillController extends Controller
      */
     public function index()
     {
-        $salesinvoice = Importbill::all();
-        return view('admin.SalesInvoice.index',compact('salesinvoice'));
+        // $importbill = Importbill::all();
+        $importbill = Importbill::with('supplier')->get(); // tạo mối quan hệ 
+        return view('admin.Importbill.index', compact('importbill'));
     }
 
     /**
@@ -28,7 +34,9 @@ class ImportbillController extends Controller
      */
     public function create()
     {
-        //
+        $supplier = Supplier::all();
+        $product = Product::all();
+        return view('admin.importbill.add', compact('supplier', 'product'));
     }
 
     /**
@@ -39,7 +47,21 @@ class ImportbillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'SupID' => $request->input('SupID'),
+            'MaHDN' => $request->input('MaHDN'),
+            'NguoiNhap' => $request->input('NguoiNhap'),
+            'ImpDate' => $request->input('ImpDate'),
+            'MoneyTotal' => $request->input('MoneyTotal'),
+            'Note' => $request->input('Note'),
+            'ProID' => $request->input('ProID'),
+            'Quantity' => $request->input('Quantity'),
+            'ImpPrice' => $request->input('ImpPrice'),
+        ];
+        Importbill::create($data);
+
+        //sau khi thêm xong hiển thị sang trang index thông báo thêm thành công
+        return redirect()->route('importbill.index')->with('success', 'Nhập hàng thành công!');
     }
 
     /**
@@ -48,9 +70,20 @@ class ImportbillController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($ImpID)
     {
-        //
+        $importbill = Importbill::where('ImpID', $ImpID)->with('supplier')->first();
+        $pro_name = Importbill::where('ImpID', $ImpID)->with('product')->first();
+        return view('admin.importbill.detail', compact('importbill','pro_name'));
+    }
+
+
+    public function printImportbill($ImpID)
+    {
+        $importbill = Importbill::where('ImpID', $ImpID)->with('supplier')->first();
+        $pro_name = Importbill::where('ImpID', $ImpID)->with('product')->first();
+        $pdf =Pdf::loadView('admin.importbill.imvoice' , compact('importbill'));
+        return $pdf->stream( 'ImportBill.pdf' ) ;
     }
 
     /**

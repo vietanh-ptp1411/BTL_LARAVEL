@@ -11,11 +11,10 @@ class SalesInvoiceDetail extends Model
     protected $table = 'salesinvoicedetail';
     protected $primaryKey = 'SaldtID';
     protected $fillable = [
-                            'SaldtID',
-                            'SalID',
-                            'ProID',
-                            'Quantity',
-                            'Price'
-                            ];
+        'SaldtID',
+        'SalID',
+        'ProID',
+        'Quantity',
+        'Price'
+    ];
 }
-

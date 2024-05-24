@@ -10,12 +10,14 @@ class SalesInvoice extends Model
 
     protected $primaryKey = 'SalID';
     // Các cột được phép gán giá trị
-    protected $fillable = ['SalID',
-                            'CusID',
-                            'SalName',
-                            'SalDate',
-                            'MoneyTotal',
-                            'Note'];
+    protected $fillable = [
+        'SalID',
+        'CusID',
+        'SalName',
+        'SalDate',
+        'MoneyTotal',
+        'Note'
+    ];
 
     public function customer()
     {

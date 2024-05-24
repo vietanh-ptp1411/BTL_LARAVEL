@@ -302,7 +302,7 @@ header{
   font-family: 'Nunito-Bold';
 }
 .main1{
-  width: 1200px;
+  width: 1300px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -311,7 +311,7 @@ header{
 .main2{
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
+  width: 100%;
   height: auto;
 }
 .main3{
@@ -321,6 +321,7 @@ header{
   max-width: 100%;
   padding: 0 15px;
   height: auto;
+  box-sizing: border-box;
 }
 .main3 h2{
   font-size: 30px;
@@ -341,7 +342,7 @@ header{
   margin: 0;
 }
 #wrapper{
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 ul.product{
@@ -479,13 +480,12 @@ ul.product li .product-info .product-price{
 .z4anh{
   display: flex;
   margin-bottom: 30px;
-  
+  justify-content: space-between;
 }
 .cdm1{
   height: auto;
-  flex: 0 0 22%;
-  max-width: 22%;
-  padding-right: 35px;
+  flex: 0 0 24%;
+  max-width: 24%;
   border-radius: 5px;
 }
 .cdm1 a img{
