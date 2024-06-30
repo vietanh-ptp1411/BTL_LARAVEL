@@ -18,7 +18,7 @@ class BlogController extends Controller
     {
         $danhMuc = Category::all();
         $blog = DB::table('blog')->select('BlogID','Name','Image','Description')->get();
-        return view('blog',compact('danhMuc','blog'));
+        return view('user.blog',compact('danhMuc','blog'));
     }
 
     /**
@@ -32,10 +32,7 @@ class BlogController extends Controller
 
         $blogdetail = DB::table('blog')->where('BlogID', $BlogID)->first();
         // dd($blogdetail);
-        return view('blogdetail', compact('danhMuc','blogdetail'));
-    }
-    public function blogde(){
-        return view('a');
+        return view('user.blogdetail', compact('danhMuc','blogdetail'));
     }
     /**
      * Store a newly created resource in storage.

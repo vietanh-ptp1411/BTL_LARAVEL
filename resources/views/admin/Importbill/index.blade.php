@@ -49,7 +49,7 @@
 						@foreach($importbill as $ip)
 						<tr>
 							<td>{{ $i++ }}</td>
-							<td>{{ $ip->MaHDN }}</td> {{-- Sau thay bằng tên sản phẩm --}}
+							<td>{{ $ip->MaHDN }}</td> 
 							<td>{{ $ip->supplier->SupName ?? 'N/A' }}</td>
 							<td>{{ $ip->ImpDate }}</td>
 							<td>{{ $ip->MoneyTotal }}</td>

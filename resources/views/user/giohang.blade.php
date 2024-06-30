@@ -15,7 +15,7 @@
 </head>
 <body>
 
-@include('partials.header') 
+@include('user.partials.header') 
 <!-- Kết thúc phần đầu trang -->
 <main style="margin-bottom: 40px;margin-top: 20px;">
     <div class="contaier">
@@ -132,75 +132,13 @@
                     </ul>
                 </div>   
             </div>
-            {{-- <div class="spdx">
-                <h2><a href="">Sản Phẩm Mới</a></h2>
-                <div id="wrapper">
-                    <ul class="product">
-                        <li>
-                            <div class="product-item">
-                                <div class="product-top">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
-                                        <img src="/anh/spm1.webp" alt="">  
-                                    </a>
-                                    <a href="" class="buy-now">Mua ngay</a>
-                                </div>
-                                <div class="product-info">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-name" title="Tinh Chất Dưỡng Sáng Da AHC Niacin Biome Mela Scissors Max Essence 30ml">Tinh Chất Dưỡng Sáng Da AHC Niacin Biome Mela Scissors Max Essence 30ml</a>
-                                    <div class="product-price">1.050.000đ</div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="product-item">
-                                <div class="product-top">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
-                                        <img src="/anh/spm2.webp" alt="">  
-                                    </a>
-                                    <a href="" class="buy-now">Mua ngay</a>
-                                </div>
-                                <div class="product-info">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-name" title="Sữa Rửa Mặt Dạng Bọt Cấp Ẩm Chuyên Sâu Curél Foaming Facial Wash 150Ml">Sữa Rửa Mặt Dạng Bọt Cấp Ẩm Chuyên Sâu Curél Foaming Facial Wash 150Ml</a>
-                                    <div class="product-price">325.600đ</div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="product-item">
-                                <div class="product-top">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
-                                        <img src="/anh/spm3.webp" alt="">  
-                                    </a>
-                                    <a href="" class="buy-now">Mua ngay</a>
-                                </div>
-                                <div class="product-info">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-name" title="Phấn Nước Căng Mướt Da Clio Kill Cover Mesh Glow Cushion SPF50+, PA++++ 15g (tặng kèm lõi)">Quạt USB cầm tay sạc tích điện Cute dinosaur khủng long heart paw</a>
-                                    <div class="product-price">819.000đ</div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="product-item">
-                                <div class="product-top">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-thumb">
-                                        <img src="/anh/spm4.webp" alt="">  
-                                    </a>
-                                    <a href="" class="buy-now">Mua ngay</a>                    
-                                </div>
-                                <div class="product-info">
-                                    <a href="/chi tiết 1 sản phẩm/chitiet.html" class="product-name" title="Má Hồng Dạng Kem Ofélia Lolli Liquid Blush 4.3g">Má Hồng Dạng Kem Ofélia Lolli Liquid Blush 4.3g</a>
-                                    <div class="product-price">199.000đ</div>
-                                </div>
-                            </div>
-                        </li>
-                </div>
-            </div> --}}
         </div>
     </div>
 </main>
 
 
 
-@include('partials.footer')
+@include('user.partials.footer')
 <script>
     
 </script> 

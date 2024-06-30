@@ -2,14 +2,13 @@
 ///////////////////////////////////chuyển slide///////////////////
 var index=1;
 changeimage =function(){
-var imgs = ["/DoAn3_IMG/slidehome1.png","/DoAn3_IMG/slidehome2.jpg","/DoAn3_IMG/slidehome3.webp"];
+var imgs = ["/DoAn3_IMG/slidehome3.webp","/DoAn3_IMG/slidehome2.jpg","/DoAn3_IMG/slidehome1.png"];
     document.getElementById("imgg").src =imgs[index];
     index++;
     if (index==3){
         index=0;
     }
 }
-setInterval(changeimage,5000);
 
 ///////////////////////////////////nút xem thêm///////////////////
 

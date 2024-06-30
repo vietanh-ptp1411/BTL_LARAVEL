@@ -1,11 +1,11 @@
 @extends('admin.layouts.admin')
  
 @section('title')
-    <title>Hóa đơn nhập</title>
+    <title>Nhà Cung Cấp</title>
 @endsection
  
 @section('content')
-<div id="content" class="span10">
+<div id="content" class="span10" style="height: 650px">
              
 	<ul class="breadcrumb">
 		<li>

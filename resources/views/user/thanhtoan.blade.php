@@ -16,7 +16,7 @@
     <script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js'></script>
 </head>
 <body>
-@include('partials.header') 
+@include('user.partials.header') 
 
 <!-- Kết thúc phần đầu trang -->
 
@@ -204,7 +204,7 @@
         </div>
     </form>
 
-    <div class="k5">
+    {{-- <div class="k5">
         <h2><a href="">Các sản phẩm đã xem</a></h2>
         <div id="wrapper">
             <ul class="product">
@@ -265,7 +265,7 @@
                     </div>
                 </li>
         </div>
-    </div>
+    </div> --}}
 </main>
 
 
@@ -273,6 +273,6 @@
 
 
 
-@include('partials.footer')  
+@include('user.partials.footer')  
 </body>
 </html>

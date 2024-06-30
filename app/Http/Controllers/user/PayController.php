@@ -25,7 +25,7 @@ class PayController extends Controller
     {
         $customer = Customer::all();
         $danhMuc = Category::all();
-        return view('thanhtoan', compact('danhMuc','customer'));
+        return view('user.thanhtoan', compact('danhMuc','customer'));
     }
 
     /**
@@ -36,7 +36,7 @@ class PayController extends Controller
     public function login_checkout()
     {
         $danhMuc = Category::all();
-        return view('login' , compact('danhMuc'));
+        return view('user.login' , compact('danhMuc'));
     }
 
     /**
@@ -106,7 +106,7 @@ class PayController extends Controller
     public function thank()
     {
         $danhMuc = Category::all();
-        return view('camon' , compact('danhMuc'));
+        return view('user.camon' , compact('danhMuc'));
     }
 
     /**

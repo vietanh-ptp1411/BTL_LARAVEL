@@ -13,7 +13,7 @@
 </head>
 <body>
     
-@include('partials.header') 
+@include('user.partials.header') 
 
 <!-- Kết thúc phần đầu trang -->
 
@@ -57,7 +57,7 @@
       </div>
   </form>
 </div>
-@include('partials.footer') 
+@include('user.partials.footer') 
 <script src="{{ asset('js/dangnhap.js') }}"></script> 
 </body>
 </html>

@@ -18,7 +18,7 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <body>
-@include('partials.header') 
+@include('user.partials.header') 
 
 <!-- Kết thúc phần đầu trang -->
 
@@ -74,6 +74,6 @@
 
 
 
-@include('partials.footer') 
+@include('user.partials.footer') 
 </body>
 </html>

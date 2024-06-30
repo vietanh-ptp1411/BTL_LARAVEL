@@ -30,6 +30,12 @@ Route::controller(App\Http\Controllers\user\HomeController::class)->group(functi
 
 });
 
+Route::controller(App\Http\Controllers\admin\ThongKeController::class)->group(function(){
+    Route::post('/filter-by-date',  'filter_by_date')->name('filter-by-date');
+    Route::post('/dashboard-filter',  'dashboard_filter')->name('dashboard-filter');
+    Route::post('/days_order',  'days_order')->name('days_order');
+
+});
 
 //Detail
 Route::controller(App\Http\Controllers\user\detailcontroller::class)->group(function(){
@@ -83,7 +89,12 @@ Route::controller(App\Http\Controllers\user\BlogController::class)->group(functi
 
 
 
-
+//Tình trạng đơn hàng
+Route::controller(App\Http\Controllers\user\OrderStatusController::class)->group(function(){
+    Route::get('/OrderStatus',  'index')->name('OrderStatus');
+    // Route::get('/blogdetail/{BlogID}',  'blogdetail')->name('blogdetail');
+    // Route::get('/blogde',  'blogde')->name('blogde');
+});
 
 
 

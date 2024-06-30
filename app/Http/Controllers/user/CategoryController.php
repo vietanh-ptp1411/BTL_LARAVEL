@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $danhMuc = Category::all();
-        return view('danhmuc', compact('danhMuc'));
+        return view('user.danhmuc', compact('danhMuc'));
     }
 
     /**
@@ -50,7 +50,7 @@ class CategoryController extends Controller
         // Lấy tên của danh mục dựa trên $CatID
         $catName = Category::where('CatID', $CatID)->value('CatName');
     
-        return view('danhMuc', compact( 'categorysp', 'danhMuc', 'catName'));
+        return view('user.danhMuc', compact( 'categorysp', 'danhMuc', 'catName'));
     }
     
 

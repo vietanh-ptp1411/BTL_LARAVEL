@@ -24,7 +24,7 @@
 </head>
 <body>
     
-@include('partials.header')
+@include('user.partials.header')
 
 <!-- Kết thúc phần đầu trang -->
 
@@ -32,7 +32,7 @@
     <div class="v">
         <div class="v1">
             <div class="img">
-                <img id="imgg" onclick="changeimage()" src="/DoAn3_IMG/slidehome1.png" alt="">
+                <img id="imgg" onclick="changeimage()" src="/DoAn3_IMG/slidehome3.webp" alt="">
             </div>
             
         </div>
@@ -42,7 +42,7 @@
                 <img src="/DoAn3_IMG/slidehome2.jpg" alt="">
             </div>
             <div class="v2-2">
-                <img src="/DoAn3_IMG/slidehome3.webp" alt="">
+                <img src="/DoAn3_IMG/slidehome1.png" alt="">
             </div>
         </div>   
     </div>
@@ -162,7 +162,7 @@
 </main>
 
 
-@include('partials.footer')
+@include('user.partials.footer')
 
 
 

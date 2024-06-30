@@ -58,8 +58,8 @@
                                 <?php
                                 if ($customerID != NULL) {
                                 ?>
-                                    <li style="margin-right: 10px"></li>
-                                    <li><a href="{{ route('logout') }}">Đăng xuất</a></li>
+                                    <li><a href="{{ route('OrderStatus') }}">Đơn hàng</a></li>
+                                    <li style="border-top: 1px solid #fff;"><a href="{{ route('logout') }}">Đăng xuất</a></li>
                                 <?php
                                 }
                                 ?>

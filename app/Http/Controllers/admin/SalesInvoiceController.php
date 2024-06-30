@@ -25,11 +25,6 @@ class SalesInvoiceController extends Controller
         $salesinvoice = SalesInvoice::all();
         return view('admin.SalesInvoice.index',compact('salesinvoice','customer'));
     }
-    public function fileHoaDon()
-    {
-        
-        return view('admin.SalesInvoice.index',compact('salesinvoice','customer'));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -162,7 +157,7 @@ class SalesInvoiceController extends Controller
      */
     public function destroy($SalID)
     {
-        // Tìm và xóa order
+        // Tìm và xóa hóa đơn
         $sale = SalesInvoice::find($SalID);
         if (!$sale) {
             return redirect()->route('SalesInvoice.index')->with('error', 'Không tìm thấy hóa đơn!');

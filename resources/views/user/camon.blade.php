@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/font/fontchu.css">
 </head>
 <body>
-    @include('partials.header') 
+    @include('user.partials.header') 
 
 <!-- Kết thúc phần đầu trang -->
 
@@ -59,7 +59,7 @@
 
 
 
-@include('partials.footer') 
+@include('user.partials.footer') 
 <script src="/chi tiết 1 sản phẩm/chitiet.js"></script>  
 </body>
 </html>

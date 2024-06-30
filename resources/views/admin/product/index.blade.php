@@ -35,8 +35,8 @@
 						<table class="table table-striped table-bordered bootstrap-datatable datatable">
 						    <thead>
 							    <tr>
-								  <th>SP ID</th>
-								  <th>Tên SP</th>
+								  <th>STT</th>
+								  <th>Tên sản phẩm</th>
 								  <th>Hình Ảnh</th>
 								  <th>Giá</th>
 								  <th>Số Lượng</th>

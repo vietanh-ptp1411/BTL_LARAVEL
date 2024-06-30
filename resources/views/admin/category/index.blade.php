@@ -34,8 +34,8 @@
                     <table class="table table-striped table-bordered bootstrap-datatable datatable">
                         <thead>
                             <tr>
-                                <th>DM ID</th>
-                                <th>Tên DM</th>
+                                <th>STT</th>
+                                <th>Tên danh mục</th>
                                 <th>Trạng thái</th>
                                 <th>Chi Tiết </th>
                                 <th>Sửa</th>

@@ -19,7 +19,7 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         $danhMuc = Category::all();
-        return view('login',compact('danhMuc'));
+        return view('user.login',compact('danhMuc'));
     }
 
 
@@ -58,7 +58,7 @@ class LoginController extends Controller
     public function showRegisterForm()
     {
         $danhMuc = Category::all();
-        return view('register',compact('danhMuc'));
+        return view('user.register',compact('danhMuc'));
     }
     public function register(Request $request)
     {

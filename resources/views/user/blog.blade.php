@@ -14,7 +14,7 @@
 </head>
 <body>
     
-@include('partials.header') 
+@include('user.partials.header') 
 
 <!-- Kết thúc phần đầu trang -->
 <div class="mains">
@@ -55,7 +55,7 @@
 </div>
 
 
-@include('partials.footer') 
+@include('user.partials.footer') 
 </body>
 </html>
 

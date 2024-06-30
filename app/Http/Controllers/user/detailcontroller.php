@@ -19,7 +19,7 @@ class detailcontroller extends Controller
 
         if (!$product) {
             
-            return redirect()->route('home'); // Trả về trang chủ
+            return redirect()->route('user.home'); // Trả về trang chủ
         }
         $ProID = $product->ProID;
         $ProName = $product->ProName;
@@ -42,7 +42,7 @@ class detailcontroller extends Controller
             ->get()
             ->except($ProID);
 
-        return view('detailt', compact('product',  'sp','danhMuc','ProID','ProName','ProDescription','Materials','Size','ProImage','MoreImage1','MoreImage2','MoreImage3','SoLuong','DaBan','price',));
+        return view('user.detailt', compact('product',  'sp','danhMuc','ProID','ProName','ProDescription','Materials','Size','ProImage','MoreImage1','MoreImage2','MoreImage3','SoLuong','DaBan','price',));
     }
     
 }

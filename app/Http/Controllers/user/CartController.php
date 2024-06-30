@@ -24,7 +24,7 @@ class CartController extends Controller
         $danhMuc = Category::all();
         $product = DB::table('product')->select('ProID','ProName','ProImage')->get();
         $price = DB::table('price')->select('ProID','Cost')->get();
-        return view('giohang', compact('danhMuc','product','price'));
+        return view('user.giohang', compact('danhMuc','product','price'));
     }
 
     /**

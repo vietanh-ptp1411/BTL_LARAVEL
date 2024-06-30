@@ -1,0 +1,18 @@
+
+p.title_thongke {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.col-md-2{
+    display: inline-block;
+    float: left;
+    margin-left: 30px;
+}
+.showcart {
+    display: block;
+}
+
+.showcart.hidden {
+    display: none;
+}

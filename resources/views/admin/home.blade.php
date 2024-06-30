@@ -8,6 +8,7 @@
 <div id="content" class="span10">
              
 <ul class="breadcrumb">
+	{{-- <p>Date: <input type="text" id="datepicker"></p> --}}
 				<li>
 					<i class="icon-home"></i>
 					<a href="/index.html">Home</a> 
@@ -15,7 +16,46 @@
 				</li>
 				<li><a href="/#">Dashboard</a></li>
 			</ul>
-
+			<div class="row">
+				<p class="title_thongke">Thống kê đơn hàng doanh số</p>
+				<form autocomplete="off">
+					@csrf
+					<div class="col-md-2">
+						<p>Từ ngày: <input type="text" id="datepicker" class="form-control"></p>
+						<input type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm" value="Lọc kết quả"></p>
+					</div>
+					<div class="col-md-2">
+						<p>Đến ngày: <input type="text" id="datepicker2" class="form-control"></p>
+					</div>
+					<div class="col-md-2">
+						<p>
+						Lọc theo:
+						<select class="dashboard-filter form-control">
+							<option>--Chọn--</option>
+							<option value="7ngay">7 ngày qua</option>
+							<option value="thangtruoc">tháng trước</option>
+							<option value="thangnay">tháng này</option>
+							<option value="365ngayqua">365 ngày qua</option>
+						</select>
+						</p>
+					</div>
+				</form>
+			</div>
+			<div class="col-md-12">
+				<div id="myfirstchart" style="height: 250px;"></div>
+			</div>
+			
+			<div class="row">
+				<style type="text/css">
+					table.table.table-bordered.table-dark {
+						background: #32383e;
+					}
+					table.table.table-bordered.table-dark tr th {
+						color: #fff;
+					}
+				</style>
+				<p class="title_thongke">Thống kê truy cập</p>
+			</div>
 			<div class="row-fluid">
 				
 				<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">

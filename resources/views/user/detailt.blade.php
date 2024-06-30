@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/font/fontchu.css">
 </head>
 <body>
-    @include('partials.header')
+    @include('user.partials.header')
 <!-- Kết thúc phần đầu trang -->
 <main class="main">
     <div class="container">
@@ -30,32 +30,43 @@
                     <a id="vap" href="#"><img id="mainImage" class="vap1" src="{{ asset('DoAn3_IMG/' . $ProImage) }}" alt=""></a>
                     <div class="u2">
                         <div class="u2-2">
-                            <div class="u2-2-2" >
-                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $ProImage) }}')">
+                            <div class="u2-2-2">
+                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $ProImage) }}', this.children[0])">
                                     <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $ProImage) }}" src="{{ asset('DoAn3_IMG/' . $ProImage) }}" alt="">
                                 </div>
-                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage1) }}')">
+                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage1) }}', this.children[0])">
                                     <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $MoreImage1) }}" src="{{ asset('DoAn3_IMG/' . $MoreImage1) }}" alt="">
                                 </div>
-                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage2) }}')">
+                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage2) }}', this.children[0])">
                                     <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $MoreImage2) }}" src="{{ asset('DoAn3_IMG/' . $MoreImage2) }}" alt="">
                                 </div>
-                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage3) }}')">
+                                <div class="u2-img" onclick="changeImage('{{ asset('DoAn3_IMG/' . $MoreImage3) }}', this.children[0])">
                                     <img data-imgbigurl="{{ asset('DoAn3_IMG/' . $MoreImage3) }}" src="{{ asset('DoAn3_IMG/' . $MoreImage3) }}" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
 
                 <script>
-                    function changeImage(newImageUrl) {
+                    function changeImage(newImageUrl, clickedElement) {
                         // Lấy thẻ ảnh chính
                         var mainImage = document.getElementById('mainImage');
                         // Đổi đường dẫn ảnh của ảnh chính thành đường dẫn mới
                         mainImage.src = newImageUrl;
+                
+                        // Xóa lớp selected-image khỏi tất cả các hình ảnh
+                        var images = document.querySelectorAll('.u2-img img');
+                        images.forEach(function(img) {
+                            img.classList.remove('selected-image');
+                        });
+                
+                        // Thêm lớp selected-image vào hình ảnh được nhấp
+                        clickedElement.classList.add('selected-image');
                     }
                 </script>
+                
     
                 <div class="k3">
                     <div class="ten">
@@ -188,7 +199,7 @@
 
 
 
-@include('partials.footer') 
+@include('user.partials.footer') 
 
 <script src="js/giohang.js"></script> 
 </body>
